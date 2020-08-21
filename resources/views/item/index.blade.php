@@ -11,7 +11,6 @@
                             {{ $item->price }}
                             {{ $item->images[0]->image }}
                             <img src="{{ $item->images[0]->image }}">
-                            <img src="/public/images/crown-6916-bronze.png">
                         </div>
                     </div>
                 </div>
