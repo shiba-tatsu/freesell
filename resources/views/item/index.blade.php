@@ -9,9 +9,7 @@
                         <div class="card-header">{{ $item->name }}</div>
                         <div class="card-body">
                             {{ $item->price }}
-                            {{ $item->images[0]->image }}
-                            <img src="{{ $item->images[0]->image }}">
-                            <img src="/public/images/crown-6916-bronze.png">
+                            <img src="data:image;base64,{{$item->images[0]->image}}" alt="image" style="width: 30%; height: auto;"/>
                         </div>
                     </div>
                 </div>

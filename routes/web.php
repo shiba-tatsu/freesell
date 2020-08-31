@@ -11,11 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*Route::get('/', function () {
+|    return view('welcome');
+|});
+*/
 
-Route::get('/item', 'ItemController@index');
+Route::get('/', 'ItemController@index')->name('item.index');
+Route::get('/items/create', 'ItemController@create')->name('item.create')->middleware('auth');
+Route::post('/items/create', 'ItemController@store')->name('item.store');
+
 
 Auth::routes();
 
