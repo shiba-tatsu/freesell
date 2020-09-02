@@ -1,2 +1,3 @@
-require('./bootstrap');
-require('./category');
+import './bootstrap'
+import Vue from 'vue'
+import './category'

@@ -24,6 +24,24 @@
       <label for="item-description">商品の説明 (1000文字まで)</label>
       <textarea class="form-control" id="item-description" rows="5" name="body" placeholder="test"></textarea>
     </div>
+
+    <div class="form-group">
+      <label for="category">カテゴリー</label>
+      <div class="row">
+        <select v-model="selectedKey" v-on:change="selected" class="form-control col-3 mr-3 ml-3">
+          <option v-for="(value, key) in items">
+            @{{ key }}
+          </option>
+        </select>
+        
+        <select name="category_id" class="form-control col-3">
+          <option v-if="selectedItem" v-for="item in selectedItem" :value="item.id">
+            @{{ item.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+    
   
     <div class="form-group">
       <label for="item_status">商品の状態</label>
