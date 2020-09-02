@@ -22,8 +22,12 @@ class CreateItemsTable extends Migration
             $table->integer('fee');
             $table->string('region');
             $table->integer('delivery_day');
-            $table->integer('seller_id');
             $table->integer('quantity');
+            $table->bigInteger('seller_id')->unsigned();
+            $table->foreign('seller_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

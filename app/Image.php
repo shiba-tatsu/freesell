@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
+    protected $fillable = [
+        'image', 'item_id',
+    ];
+    
     public function item()
     {
         

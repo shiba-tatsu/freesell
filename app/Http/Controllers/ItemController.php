@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Item;
+use App\Image;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -14,8 +15,9 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Item::where('quantity', '>', 0)->paginate(2);
+        $items = Item::where('quantity', '>', 0)->paginate(15);
         \Debugbar::info($items);
+        
         return view('item/index', ['items' => $items]);
     }
 
@@ -26,7 +28,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('item.create');
     }
 
     /**
@@ -37,7 +39,27 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = new Item();
+        $item->category_id = $request->category_id;
+        $item->status = $request->input('status');
+        $item->name = $request->input('name');
+        $item->body = $request->input('body');
+        $item->price = $request->input('price');
+        $item->fee = $request->input('fee');
+        $item->region = $request->input('region');
+        $item->delivery_day = $request->input('delivery_day');
+        $item->quantity = $request->input('quantity');
+        $item->seller_id = $request->user()->id;
+        
+        $item->save();
+        
+        foreach($request->file('image') as $img){
+            
+            Image::create(['image' => base64_encode(file_get_contents($img)),
+                           'item_id' => $item->id]);
+        }
+        
+        return redirect()->route('item.index');
     }
 
     /**
