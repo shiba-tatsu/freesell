@@ -40,6 +40,7 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
+        dd($path = Storage::disk('s3'));
         $item = new Item();
         $item->category_id = $request->category_id;
         $item->status = $request->input('status');
