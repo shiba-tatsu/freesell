@@ -14,6 +14,7 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
         $items = Item::where('quantity', '>', 0)->paginate(15);
@@ -80,7 +81,8 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        
+        return view('item/show', ['item' => $item]);
     }
 
     /**
@@ -91,7 +93,8 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        //
+        return view('item.edit', ['item' => $item]);
+        
     }
 
     /**
@@ -103,7 +106,38 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        //
+        foreach($item->images as $delImg){
+            ($delImg->delete());
+        }
+        $item->category_id = $request->category_id;
+        $item->status = $request->input('status');
+        $item->name = $request->input('name');
+        $item->body = $request->input('body');
+        $item->price = $request->input('price');
+        $item->fee = $request->input('fee');
+        $item->region = $request->input('region');
+        $item->delivery_day = $request->input('delivery_day');
+        $item->quantity = $request->input('quantity');
+        //$item->seller_id = $request->user()->id;
+        $item->save();
+
+        
+
+        foreach($request->file('image') as $img){
+            
+            Image::create([
+                            $path = Storage::disk('s3')->putFile('/', $img, 'public'),
+                            'image' => Storage::disk('s3')->url($path),
+                            'item_id' => $item->id
+                            ]);
+                            /* ローカルでの画像登録
+                            $uploadImg = $img->getClientOriginalName(),
+                            $filePath = $img->storeAs('public', $uploadImg),
+                            'image' => $uploadImg,
+                            'item_id' => $item->id]);
+                            */
+        }
+        return redirect()->route('item.index');
     }
 
     /**
@@ -114,6 +148,7 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        //
+        $item->delete();
+        return redirect('item.index');
     }
 }
