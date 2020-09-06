@@ -56,10 +56,10 @@ class ItemController extends Controller
         
         foreach($request->file('image') as $img){
             
-            Image::create([//'image' => base64_encode(file_get_contents($img)),
-                            //$uploadImg = $image->image = $request->file('image'),
-                            //$path = Storage::disk('s3')->putFile('/', $uploadImg, 'public'),
-                            //$image->image = Storage::disk('s3')->url($path),
+            Image::create([
+                            $path = Storage::disk('s3')->putFile('/', $img, 'public'),
+                            'image' => Storage::disk('s3')->url($path),
+                            'item_id' => $item->id
                             ]);
                             /* ローカルでの画像登録
                             $uploadImg = $img->getClientOriginalName(),
