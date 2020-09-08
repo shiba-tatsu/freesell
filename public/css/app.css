@@ -17005,3 +17005,22 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
 }
 
+ul {
+  list-style: none;
+}
+
+.big-image {
+  height: 200px;
+  width: 200px;
+}
+
+.small-image {
+  height: 40px;
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.show {
+  font-size: 22px;
+}
+

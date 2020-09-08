@@ -5,7 +5,7 @@
         <div class="row justify-content-left">
             @foreach ($items as $item)
                 <div class="col-md-4 mb-2">
-                    <div class="card">
+                    <a class="card" href="{{route('item.show', ['item' => $item->id])}}">
                         <div class="card-header">{{ $item->name }}</div>
                         <div class="card-body">
                             {{ $item->price }}
@@ -14,7 +14,7 @@
                             <img src="{{ $item->images[0]->image }}" alt="image" style="width: 30%; height: auto;"/>
                             
                         </div>
-                    </div>
+                    </a>
                 </div>
             @endforeach
         </div>
