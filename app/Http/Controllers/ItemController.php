@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use App\Image;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,13 @@ class ItemController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function index()
+    /*public function __construct()
+    {
+        $user = User::findorFail(Item::find($seller_id));;
+    }
+    */
+    
+     public function index()
     {
         $items = Item::where('quantity', '>', 0)->paginate(15);
         \Debugbar::info($items);
@@ -81,7 +89,6 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        
         return view('item/show', ['item' => $item]);
     }
 

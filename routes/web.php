@@ -19,14 +19,21 @@
 Route::get('/', 'ItemController@index')->name('item.index');
 Route::get('/items/create', 'ItemController@create')->name('item.create')->middleware('auth');
 Route::post('/items/create', 'ItemController@store')->name('item.store');
-Route::get('/items/{item}/show', 'ItemController@show');
+Route::get('/items/{item}/', 'ItemController@show')->name('item.show');
 
 Route::get('/items/{item}/edit', 'ItemController@edit')->name('item.edit')->middleware('auth');;
 //Route::resource('/items', 'ItemController')->except(['index', 'show', 'update', 'create', 'store'])->middleware('auth');
 Route::patch('/items/{item}/', 'ItemController@update')->name('item.update')->middleware('auth');
-Route::post('/items/{item}/delete', 'ContactFormController@destroy')->name('contact.destroy')->middleware('auth');
+Route::post('/items/{item}/destroy', 'ItemController@destroy')->name('item.destroy')->middleware('auth');
 
 
 Auth::routes();
 
+Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
+  Route::get('show/{id}', 'UserController@show')->name('users.show');
+});
+
+//Route::prefix('users')->name('users.')->group(function () {
+//  Route::get('/{name}', 'UserController@show')->name('show');
+//});
 Route::get('/home', 'HomeController@index')->name('home');
