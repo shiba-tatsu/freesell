@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+  <nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb pl-5">
+        <li class="breadcrumb-item"><a href="#">トップページ</a></li>
+        <li class="breadcrumb-item"><a href="#">{{$item->category->parent->name}}</a></li>
+        <li class="breadcrumb-item"><a href="#">{{$item->category->name}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{$item->name}}</a></li>
+    </ol>
+  </nav>
   <div class="container">
     <div class="row justify-content-left">
       <div class="justify-content-start col-8 bg-light">
