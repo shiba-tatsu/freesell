@@ -23,9 +23,15 @@ class ItemController extends Controller
     }
     */
     
-     public function index()
+     public function index(Request $request)
     {
-        $items = Item::where('quantity', '>', 0)->paginate(15);
+        if($request->has('keyword')) {
+        // SQLのlike句でitemsテーブルを検索する
+            $items = Item::where('name', 'like', '%'.$request->get('keyword').'%')->where('quantity', '>', 0)->paginate(15);
+        }
+        else{
+            $items = Item::where('quantity', '>', 0)->paginate(15);
+        }
         \Debugbar::info($items);
         
         return view('item/index', ['items' => $items]);
