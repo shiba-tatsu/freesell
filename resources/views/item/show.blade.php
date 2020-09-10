@@ -39,7 +39,14 @@
 
             <div class="show mb-5">
               {{$item->body}}
-            </div>         
+            </div>
+            <item-like
+              :initial-is-liked-by='@json($item->isLikedBy(Auth::user()))'
+              :initial-count-likes='@json($item->count_likes)'
+                                  
+              :authorized='@json(Auth::check())'
+              endpoint="{{ route('items.like', ['item' => $item]) }}">
+            </item-like>        
           </div>
 
           <div class="col-4 bg-white px-5 py-3">

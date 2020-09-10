@@ -20,4 +20,16 @@ class Item extends Model
     {
         return $this->belongsTo('App\User', 'seller_id');
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany('App\User', 'likes')->withTimestamps();
+    }
+
+    public function isLikedBy(?User $user): bool
+    {
+        return $user
+            ? (bool)$this->likes->where('id', $user->id)->count()
+            : false;
+    }
 }

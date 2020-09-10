@@ -33,6 +33,11 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
   Route::get('show/{id}', 'UserController@show')->name('users.show');
 });
 
+Route::prefix('items')->name('items.')->group(function () {
+  Route::put('/{item}/like', 'itemController@like')->name('like')->middleware('auth');
+  Route::delete('/{item}/like', 'ItemController@unlike')->name('unlike')->middleware('auth');
+});
+
 //Route::prefix('users')->name('users.')->group(function () {
 //  Route::get('/{name}', 'UserController@show')->name('show');
 //});
