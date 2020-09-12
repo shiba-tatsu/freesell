@@ -166,7 +166,7 @@ class ItemController extends Controller
         return redirect('item.index');
     }
 
-    public function like(Request $request, Article $article)
+    public function like(Request $request, Item $item)
     {
         $item->likes()->detach($request->user()->id);
         $item->likes()->attach($request->user()->id);
@@ -177,7 +177,7 @@ class ItemController extends Controller
         ];
     }
 
-    public function unlike(Request $request, Article $article)
+    public function unlike(Request $request, item $item)
     {
         $item->likes()->detach($request->user()->id);
 

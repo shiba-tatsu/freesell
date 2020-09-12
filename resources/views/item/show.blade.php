@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+  @include('layouts.nav')
   <nav aria-label="breadcrumb" role="navigation">
     <ol class="breadcrumb pl-5">
         <li class="breadcrumb-item"><a href="#">トップページ</a></li>
@@ -46,7 +47,7 @@
                                   
               :authorized='@json(Auth::check())'
               endpoint="{{ route('items.like', ['item' => $item]) }}">
-            </item-like>        
+          </item-like>        
           </div>
 
           <div class="col-4 bg-white px-5 py-3">

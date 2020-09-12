@@ -30,7 +30,7 @@ Route::post('/items/{item}/destroy', 'ItemController@destroy')->name('item.destr
 Auth::routes();
 
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
-  Route::get('show/{id}', 'UserController@show')->name('users.show');
+  Route::get('{id}/show', 'UserController@show')->name('users.show');
 });
 
 Route::prefix('items')->name('items.')->group(function () {
