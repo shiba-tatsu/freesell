@@ -34,7 +34,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
 });
 
 Route::prefix('items')->name('items.')->group(function () {
-  Route::put('/{item}/like', 'itemController@like')->name('like')->middleware('auth');
+  Route::put('/{item}/like', 'ItemController@like')->name('like')->middleware('auth');
   Route::delete('/{item}/like', 'ItemController@unlike')->name('unlike')->middleware('auth');
 });
 
