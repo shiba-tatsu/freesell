@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container bg-light">
+@include('layouts.nav')
+<div class="container bg-light ">
   <form method='POST' action="{{ route('item.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">

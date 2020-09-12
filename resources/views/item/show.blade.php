@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+  @include('layouts.nav')
   <nav aria-label="breadcrumb" role="navigation">
     <ol class="breadcrumb pl-5">
         <li class="breadcrumb-item"><a href="#">トップページ</a></li>
@@ -39,7 +40,14 @@
 
             <div class="show mb-5">
               {{$item->body}}
-            </div>         
+            </div>
+            <item-like
+              :initial-is-liked-by='@json($item->isLikedBy(Auth::user()))'
+              :initial-count-likes='@json($item->count_likes)'
+                                  
+              :authorized='@json(Auth::check())'
+              endpoint="{{ route('items.like', ['item' => $item]) }}">
+          </item-like>        
           </div>
 
           <div class="col-4 bg-white px-5 py-3">

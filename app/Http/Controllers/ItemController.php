@@ -95,6 +95,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
+        //dd($item->likes);
         return view('item/show', ['item' => $item]);
     }
 
@@ -163,5 +164,26 @@ class ItemController extends Controller
     {
         $item->delete();
         return redirect('item.index');
+    }
+
+    public function like(Request $request, Item $item)
+    {
+        $item->likes()->detach($request->user()->id);
+        $item->likes()->attach($request->user()->id);
+
+        return [
+            'id' => $item->id,
+            'countLikes' => $item->count_likes,
+        ];
+    }
+
+    public function unlike(Request $request, item $item)
+    {
+        $item->likes()->detach($request->user()->id);
+
+        return [
+            'id' => $item->id,
+            'countLikes' => $item->count_likes,
+        ];
     }
 }

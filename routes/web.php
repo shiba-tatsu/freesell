@@ -30,7 +30,12 @@ Route::post('/items/{item}/destroy', 'ItemController@destroy')->name('item.destr
 Auth::routes();
 
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
-  Route::get('show/{id}', 'UserController@show')->name('users.show');
+  Route::get('{id}/show', 'UserController@show')->name('users.show');
+});
+
+Route::prefix('items')->name('items.')->group(function () {
+  Route::put('/{item}/like', 'itemController@like')->name('like')->middleware('auth');
+  Route::delete('/{item}/like', 'ItemController@unlike')->name('unlike')->middleware('auth');
 });
 
 //Route::prefix('users')->name('users.')->group(function () {
