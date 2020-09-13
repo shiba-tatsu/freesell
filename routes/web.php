@@ -30,12 +30,22 @@ Route::post('/items/{item}/destroy', 'ItemController@destroy')->name('item.destr
 Auth::routes();
 
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
-  Route::get('{id}/show', 'UserController@show')->name('users.show');
+  Route::get('{user}/show', 'UserController@show')->name('users.show');
 });
 
 Route::prefix('items')->name('items.')->group(function () {
   Route::put('/{item}/like', 'ItemController@like')->name('like')->middleware('auth');
   Route::delete('/{item}/like', 'ItemController@unlike')->name('unlike')->middleware('auth');
+});
+
+Route::prefix('login')->name('login.')->group(function () {
+  Route::get('/{provider}', 'Auth\LoginController@redirectToProvider')->name('{provider}');
+  Route::get('/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('{provider}.callback');
+});
+
+Route::prefix('register')->name('register.')->group(function () {
+  Route::get('/{provider}', 'Auth\RegisterController@showProviderUserRegistrationForm')->name('{provider}');
+  Route::post('/{provider}', 'Auth\RegisterController@registerProviderUser')->name('{provider}');
 });
 
 //Route::prefix('users')->name('users.')->group(function () {

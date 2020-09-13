@@ -8,6 +8,9 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
+                    <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn btn-block btn-danger">
+                        <i class="fab fa-google mr-1"></i>Googleで登録
+                      </a>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
