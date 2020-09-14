@@ -32,5 +32,8 @@
                 </div>
             @endforeach
         </div>
+        <div class="row justify-content-center">
+            {{ $items->appends(['keyword' => Request::get('keyword')])->links() }}
+        </div>
     </div>
 @endsection

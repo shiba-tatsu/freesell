@@ -20,6 +20,8 @@ Route::get('/', 'ItemController@index')->name('item.index');
 Route::get('/items/create', 'ItemController@create')->name('item.create')->middleware('auth');
 Route::post('/items/create', 'ItemController@store')->name('item.store');
 Route::get('/items/{item}/', 'ItemController@show')->name('item.show');
+Route::get('/search', 'ItemController@search')->name('item.search');
+Route::get('/refined', 'ItemController@refined')->name('item.refined');
 
 Route::get('/items/{item}/edit', 'ItemController@edit')->name('item.edit')->middleware('auth');;
 //Route::resource('/items', 'ItemController')->except(['index', 'show', 'update', 'create', 'store'])->middleware('auth');

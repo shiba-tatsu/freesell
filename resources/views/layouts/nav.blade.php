@@ -5,7 +5,7 @@
       </a>
 
       <!-- 検索フォーム -->
-      <form method="GET" action="/">
+      <form method="GET" action="{{ route('item.search') }}">
           <input type="text" name="keyword">
           <input type="submit" value="商品検索">
       </form>
