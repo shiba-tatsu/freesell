@@ -2034,6 +2034,776 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/category.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/category.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      selectedKey: '',
+      selectedItem: '',
+      items: {
+        "アクセサリー": [{
+          id: 19,
+          name: '指輪・リング'
+        }, {
+          id: 20,
+          name: 'ピアス'
+        }, {
+          id: 21,
+          name: 'イヤリング'
+        }, {
+          id: 22,
+          name: 'イヤーカフ・イヤーフック'
+        }, {
+          id: 23,
+          name: 'ネックレス'
+        }, {
+          id: 24,
+          name: 'ブレスレット'
+        }, {
+          id: 25,
+          name: 'ヘアアクセサリー'
+        }, {
+          id: 26,
+          name: 'コサージュ・ブローチ'
+        }, {
+          id: 27,
+          name: 'バレッタ・ヘアクリップ'
+        }, {
+          id: 28,
+          name: 'ヘアバンド'
+        }, {
+          id: 29,
+          name: 'シュシュ'
+        }, {
+          id: 30,
+          name: 'ヘアゴム'
+        }, {
+          id: 31,
+          name: 'ポニーフック'
+        }, {
+          id: 32,
+          name: 'ヘアピン'
+        }, {
+          id: 33,
+          name: 'アンクレット'
+        }, {
+          id: 34,
+          name: 'かんざし'
+        }, {
+          id: 35,
+          name: '腕時計'
+        }, {
+          id: 36,
+          name: 'ネクタイピン'
+        }, {
+          id: 37,
+          name: 'キーホルダー・ストラップ'
+        }, {
+          id: 38,
+          name: 'その他'
+        }],
+        "マスク": [{
+          id: 39,
+          name: '大人用マスク'
+        }, {
+          id: 40,
+          name: '子供用マスク'
+        }, {
+          id: 41,
+          name: 'マスクカバー'
+        }, {
+          id: 42,
+          name: 'インナーマスク'
+        }, {
+          id: 43,
+          name: 'マスクケース'
+        }, {
+          id: 44,
+          name: 'マスクホルダー・キャッチ'
+        }, {
+          id: 45,
+          name: '手作りキット'
+        }, {
+          id: 46,
+          name: '素材'
+        }, {
+          id: 47,
+          name: 'その他'
+        }],
+        "バッグ・財布・小物": [{
+          id: 48,
+          name: 'バッグ'
+        }, {
+          id: 49,
+          name: 'トートバッグ'
+        }, {
+          id: 50,
+          name: 'ショルダーバッグ'
+        }, {
+          id: 51,
+          name: 'バックパック・リュック'
+        }, {
+          id: 52,
+          name: 'ボストンバッグ'
+        }, {
+          id: 53,
+          name: 'ハンドバッグ'
+        }, {
+          id: 54,
+          name: 'クラッチバッグ'
+        }, {
+          id: 55,
+          name: 'かごバッグ'
+        }, {
+          id: 56,
+          name: 'ポーチ'
+        }, {
+          id: 57,
+          name: 'メガネケース'
+        }, {
+          id: 58,
+          name: 'ティッシュケース'
+        }, {
+          id: 59,
+          name: '財布'
+        }, {
+          id: 60,
+          name: 'コインケース'
+        }, {
+          id: 61,
+          name: '名刺・カードケース'
+        }, {
+          id: 62,
+          name: 'キーケース'
+        }, {
+          id: 63,
+          name: 'バッグチャーム'
+        }, {
+          id: 64,
+          name: 'その他'
+        }],
+        "スマホケース・モバイルグッズランキング": [{
+          id: 65,
+          name: 'スマホケース'
+        }, {
+          id: 66,
+          name: '手帳型スマホケース'
+        }, {
+          id: 67,
+          name: 'スマホリング'
+        }, {
+          id: 68,
+          name: 'イヤホンジャック'
+        }, {
+          id: 69,
+          name: 'ストラップ'
+        }, {
+          id: 70,
+          name: 'コードホルダー'
+        }, {
+          id: 71,
+          name: 'モバイルバッテリー'
+        }, {
+          id: 72,
+          name: 'スマホポーチ'
+        }, {
+          id: 73,
+          name: 'スマホスタンド'
+        }, {
+          id: 74,
+          name: 'スマホスピーカー'
+        }, {
+          id: 75,
+          name: 'PC・タブレットケース'
+        }, {
+          id: 76,
+          name: 'その他'
+        }],
+        "家具・生活雑誌": [{
+          id: 77,
+          name: '家具'
+        }, {
+          id: 78,
+          name: 'テーブル・デスク'
+        }, {
+          id: 79,
+          name: 'チェア・椅子'
+        }, {
+          id: 80,
+          name: 'クッション'
+        }, {
+          id: 81,
+          name: '収納家具'
+        }, {
+          id: 82,
+          name: '本棚・マガジンラック'
+        }, {
+          id: 83,
+          name: 'テレビ台'
+        }, {
+          id: 84,
+          name: '照明'
+        }, {
+          id: 85,
+          name: 'インテリア雑貨'
+        }, {
+          id: 86,
+          name: '時計'
+        }, {
+          id: 87,
+          name: '表札・ネームプレート'
+        }, {
+          id: 88,
+          name: '玄関用品'
+        }, {
+          id: 89,
+          name: 'バス・トイレ・洗面用品'
+        }, {
+          id: 90,
+          name: '掃除用品'
+        }, {
+          id: 91,
+          name: 'ゴミ箱'
+        }, {
+          id: 92,
+          name: '小物入れ・かご'
+        }, {
+          id: 93,
+          name: 'アクセサリー収納'
+        }, {
+          id: 94,
+          name: '鏡・ドレッサー'
+        }, {
+          id: 95,
+          name: 'カーテン'
+        }, {
+          id: 96,
+          name: 'ラグ・マット'
+        }, {
+          id: 97,
+          name: 'ティッシュケース・カバー'
+        }, {
+          id: 98,
+          name: '花瓶・一輪挿し'
+        }, {
+          id: 99,
+          name: 'フォトフレーム'
+        }, {
+          id: 100,
+          name: '置物'
+        }, {
+          id: 101,
+          name: 'ウォールステッカー・デコ'
+        }, {
+          id: 102,
+          name: 'ガーランド'
+        }, {
+          id: 103,
+          name: 'タペストリー'
+        }, {
+          id: 104,
+          name: 'サンキャッチャー'
+        }, {
+          id: 105,
+          name: 'モビール'
+        }, {
+          id: 106,
+          name: 'キッチン小物'
+        }, {
+          id: 107,
+          name: '箸置き'
+        }, {
+          id: 108,
+          name: 'コースター'
+        }, {
+          id: 109,
+          name: 'その他'
+        }],
+        "文房具・ステーショナリー": [{
+          id: 110,
+          name: 'ノート・メモ帳'
+        }, {
+          id: 111,
+          name: 'ペンケース'
+        }, {
+          id: 112,
+          name: 'ペン・筆記用具'
+        }, {
+          id: 113,
+          name: 'カード・レター・ラッピング'
+        }, {
+          id: 114,
+          name: 'シール・ステッカー'
+        }, {
+          id: 115,
+          name: 'マスキングテープ'
+        }, {
+          id: 116,
+          name: 'ペーパークラフト'
+        }, {
+          id: 117,
+          name: 'はんこ'
+        }, {
+          id: 118,
+          name: 'ブックカバー'
+        }, {
+          id: 119,
+          name: 'しおり・ブックマーカー'
+        }, {
+          id: 120,
+          name: 'マグネット'
+        }, {
+          id: 121,
+          name: 'カレンダー'
+        }, {
+          id: 122,
+          name: 'その他'
+        }],
+        "ニット・編み物": [{
+          id: 123,
+          name: '帽子・マフラー・手袋・靴下'
+        }, {
+          id: 124,
+          name: 'セーター・カーディガン'
+        }, {
+          id: 125,
+          name: '刺繍・ステッチ'
+        }, {
+          id: 126,
+          name: 'キルト・パッチワーク'
+        }, {
+          id: 127,
+          name: 'その他'
+        }],
+        "陶器・ガラス・食器": [{
+          id: 128,
+          name: '陶器'
+        }, {
+          id: 129,
+          name: 'ガラス工芸'
+        }, {
+          id: 130,
+          name: '食器'
+        }, {
+          id: 131,
+          name: 'その他'
+        }],
+        "アート・写真": [{
+          id: 132,
+          name: '絵画'
+        }, {
+          id: 133,
+          name: 'イラスト'
+        }, {
+          id: 134,
+          name: '写真'
+        }, {
+          id: 135,
+          name: 'グラフィック'
+        }, {
+          id: 136,
+          name: '版画・彫刻'
+        }, {
+          id: 137,
+          name: '書道'
+        }, {
+          id: 138,
+          name: 'オブジェ・立体物'
+        }, {
+          id: 139,
+          name: 'ZINE・リトルプレス'
+        }, {
+          id: 140,
+          name: 'その他'
+        }],
+        "ベビー・キッズ": [{
+          id: 141,
+          name: '子供服'
+        }, {
+          id: 142,
+          name: 'ベビー服'
+        }, {
+          id: 143,
+          name: 'スタイ・よだれかけ'
+        }, {
+          id: 144,
+          name: '着物・浴衣・甚平'
+        }, {
+          id: 145,
+          name: '帽子'
+        }, {
+          id: 146,
+          name: '靴'
+        }, {
+          id: 147,
+          name: 'ヘアアクセサリー'
+        }, {
+          id: 148,
+          name: '移動ポケット'
+        }, {
+          id: 149,
+          name: 'ファッション小物'
+        }, {
+          id: 150,
+          name: 'おくるみ・ブランケット'
+        }, {
+          id: 151,
+          name: 'おもちゃ'
+        }, {
+          id: 152,
+          name: 'おでかけママアイテム'
+        }, {
+          id: 153,
+          name: '母子手帳ケース'
+        }, {
+          id: 154,
+          name: 'マタニティ'
+        }, {
+          id: 155,
+          name: '命名書'
+        }, {
+          id: 156,
+          name: 'メモリアル・記念品'
+        }, {
+          id: 157,
+          name: '食器・インテリア'
+        }, {
+          id: 158,
+          name: 'エプロン・スモック'
+        }, {
+          id: 159,
+          name: 'ワッペン'
+        }, {
+          id: 160,
+          name: 'お名前シール'
+        }, {
+          id: 161,
+          name: 'お名前スタンプ'
+        }, {
+          id: 162,
+          name: '入園入学セット'
+        }, {
+          id: 163,
+          name: 'レッスンバッグ'
+        }, {
+          id: 164,
+          name: '上履き入れ'
+        }, {
+          id: 165,
+          name: 'ランドセルカバー'
+        }, {
+          id: 166,
+          name: 'お弁当袋・ランチョンマット'
+        }, {
+          id: 167,
+          name: '水筒・肩紐カバー'
+        }, {
+          id: 168,
+          name: '巾着'
+        }, {
+          id: 169,
+          name: 'ハンカチ'
+        }, {
+          id: 170,
+          name: 'その他'
+        }],
+        "ぬいぐるみ・人形": [{
+          id: 171,
+          name: 'ぬいぐるみ'
+        }, {
+          id: 172,
+          name: 'あみぐるみ'
+        }, {
+          id: 173,
+          name: '人形'
+        }, {
+          id: 174,
+          name: 'フェルト'
+        }, {
+          id: 175,
+          name: '着せ替え服'
+        }, {
+          id: 176,
+          name: 'その他'
+        }],
+        "おもちゃ": [{
+          id: 177,
+          name: 'フィギュア'
+        }, {
+          id: 178,
+          name: 'ミニチュア'
+        }, {
+          id: 179,
+          name: '知育玩具'
+        }, {
+          id: 180,
+          name: 'その他'
+        }],
+        "ペットグッズ": [{
+          id: 181,
+          name: 'ウェア'
+        }, {
+          id: 182,
+          name: '首輪・リード'
+        }, {
+          id: 183,
+          name: 'アクセサリー'
+        }, {
+          id: 184,
+          name: 'おもちゃ'
+        }, {
+          id: 185,
+          name: 'その他'
+        }],
+        "アロマキャンドル": [{
+          id: 186,
+          name: 'アロマ'
+        }, {
+          id: 187,
+          name: 'キャンドル'
+        }, {
+          id: 188,
+          name: 'アロマ・キャンドルホルダー'
+        }, {
+          id: 189,
+          name: 'その他'
+        }],
+        "フラワー・ガーデン": [{
+          id: 190,
+          name: 'リース'
+        }, {
+          id: 191,
+          name: 'しめ縄・しめ飾り'
+        }, {
+          id: 192,
+          name: 'スワッグ'
+        }, {
+          id: 193,
+          name: 'アレンジメント'
+        }, {
+          id: 194,
+          name: 'ハーバリウム'
+        }, {
+          id: 195,
+          name: '観葉植物'
+        }, {
+          id: 196,
+          name: 'ブーケ'
+        }, {
+          id: 197,
+          name: 'ドライフラワー'
+        }, {
+          id: 198,
+          name: 'プリザーブドフラワー'
+        }, {
+          id: 199,
+          name: 'プランター・植木鉢'
+        }, {
+          id: 200,
+          name: 'その他'
+        }],
+        "素材・道具": [{
+          id: 201,
+          name: '各種パーツ'
+        }, {
+          id: 202,
+          name: 'チャーム'
+        }, {
+          id: 203,
+          name: 'ビジュー・クリスタル'
+        }, {
+          id: 204,
+          name: '樹脂・レジン'
+        }, {
+          id: 205,
+          name: 'ビーズ'
+        }, {
+          id: 206,
+          name: 'ボタン'
+        }, {
+          id: 207,
+          name: 'パール'
+        }, {
+          id: 208,
+          name: '天然石'
+        }, {
+          id: 209,
+          name: 'シェル'
+        }, {
+          id: 210,
+          name: '金具・チェーン'
+        }, {
+          id: 211,
+          name: '生地・糸'
+        }, {
+          id: 212,
+          name: 'ワッペン・アップリケ'
+        }, {
+          id: 213,
+          name: '花材'
+        }, {
+          id: 214,
+          name: 'リボン・テープ'
+        }, {
+          id: 215,
+          name: '型紙・パターン'
+        }, {
+          id: 216,
+          name: '道具'
+        }, {
+          id: 217,
+          name: '梱包材・台紙'
+        }, {
+          id: 218,
+          name: 'その他'
+        }],
+        "手作りキット": [{
+          id: 219,
+          name: 'アクセサリー'
+        }, {
+          id: 220,
+          name: '財布・ポーチ'
+        }, {
+          id: 221,
+          name: 'バッグ'
+        }, {
+          id: 222,
+          name: 'ファッション'
+        }, {
+          id: 223,
+          name: 'ベビー・子供用品'
+        }, {
+          id: 224,
+          name: '和小物'
+        }, {
+          id: 225,
+          name: 'インテリア・飾り'
+        }, {
+          id: 226,
+          name: 'フラワー・グリーン'
+        }, {
+          id: 227,
+          name: '人形・ミニチュア'
+        }, {
+          id: 228,
+          name: '写真・アルバム'
+        }, {
+          id: 229,
+          name: 'その他'
+        }],
+        "食べ物": [{
+          id: 230,
+          name: 'パン'
+        }, {
+          id: 231,
+          name: 'お米・餅・パスタ'
+        }, {
+          id: 232,
+          name: 'グラノーラ・ドライフルーツ'
+        }, {
+          id: 233,
+          name: 'クッキー・焼き菓子'
+        }, {
+          id: 234,
+          name: 'ケーキ'
+        }, {
+          id: 235,
+          name: 'スイーツ・お菓子'
+        }, {
+          id: 236,
+          name: 'コーヒー'
+        }, {
+          id: 237,
+          name: 'お茶・ジュース'
+        }, {
+          id: 238,
+          name: 'ジャム・シロップ'
+        }, {
+          id: 239,
+          name: 'チーズ・乳製品'
+        }, {
+          id: 240,
+          name: '調味料・スパイス'
+        }, {
+          id: 241,
+          name: '精肉・肉加工品'
+        }, {
+          id: 242,
+          name: '魚介類・水産加工品'
+        }, {
+          id: 243,
+          name: 'おつまみ・惣菜'
+        }, {
+          id: 244,
+          name: 'ピクルス・梅干・ふりかけ'
+        }, {
+          id: 245,
+          name: '野菜・フルーツ'
+        }]
+      }
+    };
+  },
+  methods: {
+    selected: function selected() {
+      this.selectedItem = this.items[this.selectedKey];
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/item_edit.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/item_edit.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      message: 'Hello Vue!'
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -38400,6 +39170,110 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/category.vue?vue&type=template&id=29cbcf49&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/category.vue?vue&type=template&id=29cbcf49& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "form-group" }, [
+    _c("label", { attrs: { for: "category" } }, [_vm._v("カテゴリー")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.selectedKey,
+              expression: "selectedKey"
+            }
+          ],
+          staticClass: "form-control col-3 mr-3 ml-3",
+          on: {
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.selectedKey = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              _vm.selected
+            ]
+          }
+        },
+        _vm._l(_vm.items, function(value, key) {
+          return _c("option", [
+            _vm._v("\n          " + _vm._s(key) + "\n        ")
+          ])
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c(
+        "select",
+        { staticClass: "form-control col-3", attrs: { name: "category_id" } },
+        _vm._l(_vm.selectedItem, function(item) {
+          return _vm.selectedItem
+            ? _c("option", { domProps: { value: item.id } }, [
+                _vm._v("\n          " + _vm._s(item.name) + "\n        ")
+              ])
+            : _vm._e()
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/item_edit.vue?vue&type=template&id=74ba4efb&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/item_edit.vue?vue&type=template&id=74ba4efb& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("\n  " + _vm._s(_vm.message) + "\n")])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -50576,6 +51450,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_ItemLike__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ItemLike */ "./resources/js/components/ItemLike.vue");
+/* harmony import */ var _components_category__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/category */ "./resources/js/components/category.vue");
+/* harmony import */ var _components_item_edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/item_edit */ "./resources/js/components/item_edit.vue");
+
+
 
 
  //import './category'
@@ -50584,7 +51462,9 @@ __webpack_require__.r(__webpack_exports__);
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
   components: {
-    ItemLike: _components_ItemLike__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ItemLike: _components_ItemLike__WEBPACK_IMPORTED_MODULE_2__["default"],
+    category: _components_category__WEBPACK_IMPORTED_MODULE_3__["default"],
+    item_edit: _components_item_edit__WEBPACK_IMPORTED_MODULE_4__["default"]
   }
 });
 
@@ -50699,6 +51579,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItemLike_vue_vue_type_template_id_fd418496___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ItemLike_vue_vue_type_template_id_fd418496___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/category.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/category.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _category_vue_vue_type_template_id_29cbcf49___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./category.vue?vue&type=template&id=29cbcf49& */ "./resources/js/components/category.vue?vue&type=template&id=29cbcf49&");
+/* harmony import */ var _category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./category.vue?vue&type=script&lang=js& */ "./resources/js/components/category.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _category_vue_vue_type_template_id_29cbcf49___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _category_vue_vue_type_template_id_29cbcf49___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/category.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/category.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/category.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./category.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/category.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/category.vue?vue&type=template&id=29cbcf49&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/category.vue?vue&type=template&id=29cbcf49& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_category_vue_vue_type_template_id_29cbcf49___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./category.vue?vue&type=template&id=29cbcf49& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/category.vue?vue&type=template&id=29cbcf49&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_category_vue_vue_type_template_id_29cbcf49___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_category_vue_vue_type_template_id_29cbcf49___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/item_edit.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/item_edit.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _item_edit_vue_vue_type_template_id_74ba4efb___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./item_edit.vue?vue&type=template&id=74ba4efb& */ "./resources/js/components/item_edit.vue?vue&type=template&id=74ba4efb&");
+/* harmony import */ var _item_edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./item_edit.vue?vue&type=script&lang=js& */ "./resources/js/components/item_edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _item_edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _item_edit_vue_vue_type_template_id_74ba4efb___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _item_edit_vue_vue_type_template_id_74ba4efb___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/item_edit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/item_edit.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/item_edit.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_item_edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./item_edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/item_edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_item_edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/item_edit.vue?vue&type=template&id=74ba4efb&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/item_edit.vue?vue&type=template&id=74ba4efb& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_item_edit_vue_vue_type_template_id_74ba4efb___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./item_edit.vue?vue&type=template&id=74ba4efb& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/item_edit.vue?vue&type=template&id=74ba4efb&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_item_edit_vue_vue_type_template_id_74ba4efb___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_item_edit_vue_vue_type_template_id_74ba4efb___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
