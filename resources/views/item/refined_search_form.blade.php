@@ -2,6 +2,7 @@
   <h1>検索</h1>
 
   <form action="{{ route('item.refined') }}" method="GET">
+    @csrf
       <p>キーワード<br>
           <input type="text" name="keyword" value="{{$keyword}}">
       </p>
