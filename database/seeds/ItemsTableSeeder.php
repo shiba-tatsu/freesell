@@ -13,7 +13,7 @@ class ItemsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Item::class, 30)
+        factory(Item::class, 10)
             ->create()
             ->each(function ($item) {
                 $images = factory(App\Image::class, 2)->make();

@@ -34,7 +34,7 @@
               
               <div class="col-6">
                 <h1>{{$item->name}}</h1>
-                <a href="{{ route('users.show', ['id' => $item->user->id])}}">{{$item->user->name}}</a>
+                <a href="{{ route('users.show', ['user' => $item->user->id])}}">{{$item->user->name}}</a>
               </div>
             </div>
 
