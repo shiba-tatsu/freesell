@@ -243,7 +243,7 @@ class ItemController extends Controller
         $items = $query->paginate(15);
 
         \Debugbar::info($items);
-        
-        return view('item/refined', compact('items','keyword','minPrice', 'maxPrice', 'status', 'delivery_day'));
+
+        return view('item/refined', compact('items','keyword','minPrice', 'maxPrice', 'statusChecked', 'delivery_day'));
     }
 }
