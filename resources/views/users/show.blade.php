@@ -7,6 +7,9 @@
   test
   <item_edit>
   </item_edit>
+
+  <review_modal>
+  </review_modal>
 </div>
 
 <form id="logout-button" method="POST" action="{{ route('logout') }}">

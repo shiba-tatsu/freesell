@@ -94,9 +94,10 @@ class ItemController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Item $item)
-    {
-        //dd($item->likes);
-        return view('item/show', ['item' => $item]);
+    { 
+        $reviews = $item->reviews;
+        \Debugbar::info($item, $reviews);
+        return view('item/show', ['item' => $item, 'reviews' => $reviews]);
     }
 
     /**
