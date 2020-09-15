@@ -21,6 +21,11 @@ class Item extends Model
         return $this->belongsTo('App\User', 'seller_id');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany('App\Review');
+    }
+
     public function likes()
     {
         return $this->belongsToMany('App\User', 'likes')->withTimestamps();

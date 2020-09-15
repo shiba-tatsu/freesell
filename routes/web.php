@@ -28,6 +28,7 @@ Route::get('/items/{item}/edit', 'ItemController@edit')->name('item.edit')->midd
 Route::patch('/items/{item}/', 'ItemController@update')->name('item.update')->middleware('auth');
 Route::post('/items/{item}/destroy', 'ItemController@destroy')->name('item.destroy')->middleware('auth');
 
+Route::resource('reviews', 'ReviewController', ['only' => ['create','store']])->middleware('auth');
 
 Auth::routes();
 
@@ -53,4 +54,4 @@ Route::prefix('register')->name('register.')->group(function () {
 //Route::prefix('users')->name('users.')->group(function () {
 //  Route::get('/{name}', 'UserController@show')->name('show');
 //});
-Route::get('/home', 'HomeController@index')->name('home');
+

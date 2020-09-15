@@ -42,6 +42,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Item', 'seller_id');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany('App\Review');
+    }
+
     public function likes()
     {
         return $this->belongsToMany('App\Item', 'likes')->withTimestamps();

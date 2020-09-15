@@ -1,8 +1,16 @@
 import './bootstrap'
 import Vue from 'vue'
+
+import StarRating from 'vue-star-rating';
+import VModal from 'vue-js-modal'
+
 import ItemLike from './components/ItemLike'
 import category from './components/category'
 import item_edit from './components/item_edit'
+import review_modal from './components/review_modal'
+
+Vue.component('star-rating', StarRating);
+Vue.use(VModal);
 //import './category'
 //import './item_edit'
 
@@ -13,5 +21,15 @@ const app = new Vue({
     ItemLike,
     category,
     item_edit,
+    review_modal,
   }
 })
+
+/*
+let star = new Vue({
+  el: '#star', 
+  data: {
+  rating: 1 
+  }
+  });
+*/

@@ -2,6 +2,7 @@
 
 @section('content')
   @include('layouts.nav')
+<!-- パンくずリスト -->
   <nav aria-label="breadcrumb" role="navigation">
     <ol class="breadcrumb pl-5">
         <li class="breadcrumb-item"><a href="#">トップページ</a></li>
@@ -10,6 +11,7 @@
         <li class="breadcrumb-item active" aria-current="page">{{$item->name}}</a></li>
     </ol>
   </nav>
+
   <div class="container">
     <div class="row justify-content-left">
       <div class="justify-content-start col-8 bg-light">
@@ -61,11 +63,17 @@
               <button class="btn bg-primary mt-5 mx-3">
                 購入
               </button>
-              <button class="btn bg-primary mt-4 mx-3">
-                カートに入れる
+              <button class="btn bg-light mt-4 mx-3">
+                <a href="{{ route('reviews.create', ['item' => $item->id])}}">
+                レビューを書く
+                </a>
               </button>
-
-              </div>
+              <form method='POST' action="{{ route('reviews.store') }}" enctype="multipart/form-data">
+                @csrf  
+                  <input type="hidden" name="item_id" value="{{$item->id}}">
+                  <review_modal>
+                  </review_modal>
+              </form>
             </div>
           </div>
         </div>
@@ -115,6 +123,16 @@
             </div>
             
           </div>
+        </div>
+
+        <div class="reviews row">
+          @foreach($reviews as $review)
+            {{$review->title}}<br>
+            {{$review->body}}<br>
+            {{$review->user->name}}
+            <star-rating :increment="0.5" rating="{{$review->star}}" read-only="true">
+            </star-rating><br>
+          @endforeach
         </div>
 
       </div>
