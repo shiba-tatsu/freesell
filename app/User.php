@@ -51,4 +51,19 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Item', 'likes')->withTimestamps();
     }
+
+    public function chatMessages()
+    {
+        return $this->hasMany('App\ChatMessage');
+    }
+
+    public function chatRooms()
+    {
+        return $this->hasMany('App\ChatRoom');
+    }
+
+    public function sellerChatRooms()
+    {
+        return $this->hasMany('App\ChatRoom', 'seller_id');
+    }
 }

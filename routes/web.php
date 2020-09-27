@@ -51,6 +51,13 @@ Route::prefix('register')->name('register.')->group(function () {
   Route::post('/{provider}', 'Auth\RegisterController@registerProviderUser')->name('{provider}');
 });
 
+// チャット機能
+Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
+  Route::post('create', 'ChatController@create')->name('chat.create');
+  Route::get('/show/{id}', 'ChatController@show')->name('chat.show');
+  Route::post('chat', 'ChatController@chat')->name('chat.chat');
+});
+
 //Route::prefix('users')->name('users.')->group(function () {
 //  Route::get('/{name}', 'UserController@show')->name('show');
 //});

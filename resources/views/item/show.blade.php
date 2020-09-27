@@ -74,7 +74,16 @@
                   <review_modal>
                   </review_modal>
               </form>
+
+              
             </div>
+
+            <form method="POST" action="{{ route('chat.create') }}">
+              @csrf
+                <input name="seller_id" type="hidden" value="{{$item->user->id}}">
+                <button type="submit" class="chatForm_btn">出品者に相談する</button>
+            </form>
+
           </div>
         </div>
 
