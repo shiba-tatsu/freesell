@@ -4,7 +4,6 @@
 @include('layouts.nav')
 
 <div class="mb-5">
-  <p>{{ env('DB_CONNECTION')}}</p>
   test
   <item_edit>
   </item_edit>
