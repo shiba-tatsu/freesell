@@ -58,6 +58,16 @@ Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
   Route::post('chat', 'ChatController@chat')->name('chat.chat');
 });
 
+// クレジットカード登録
+Route::get('/users/payment', 'PaymentController@getCurrentPayment')->name('payment.payment');
+Route::get('/users/payment/form', 'PaymentController@getPaymentForm')->name('payment.form');
+Route::post('/users/payment/store', 'PaymentController@storePaymentInfo')->name('payment.store');
+Route::post('/users/payment/destroy', 'PaymentController@deletePaymentInfo')->name('payment.destroy');
+
+Route::post('/items/buy', 'PaymentController@buy')->name('payment.buy');
+Route::post('/items/pay', 'PaymentController@pay')->name('payment.pay');
+Route::get('/items/pay/complete', 'PaymentController@complete')->name('payment.complete');
+
 //Route::prefix('users')->name('users.')->group(function () {
 //  Route::get('/{name}', 'UserController@show')->name('show');
 //});

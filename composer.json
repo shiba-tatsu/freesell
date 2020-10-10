@@ -16,7 +16,8 @@
         "laravel/socialite": "^5.0",
         "laravel/tinker": "^1.0",
         "league/flysystem-aws-s3-v3": "^1.0",
-        "pusher/pusher-php-server": "^4.1"
+        "pusher/pusher-php-server": "^4.1",
+        "stripe/stripe-php": "^7.53"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
