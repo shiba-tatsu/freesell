@@ -1,7 +1,8 @@
 /* public/js/payment.js　*/
 
 /* 基本設定*/
-const stripe = Stripe("pk_test_51HRgBIJ3MplAPBf1RB4H5g4eOhwkFA3GNnsmhKplyuRxDOKQdT9V0T0jsZ0Qpv0c48Bde6NN6lqr3dpmnK9txp7S00EQWQYBJX");
+//const stripe = Stripe("pk_test_51HRgBIJ3MplAPBf1RB4H5g4eOhwkFA3GNnsmhKplyuRxDOKQdT9V0T0jsZ0Qpv0c48Bde6NN6lqr3dpmnK9txp7S00EQWQYBJX");
+const stripe = Stripe(stripe_public_key);
 const elements = stripe.elements();
 
 /* Stripe Elementsを使ったFormの各パーツをどんなデザインにしたいかを定義 */
@@ -23,7 +24,7 @@ cardExpiry.mount('#expiration');
 
 document.querySelector('#form_payment').addEventListener('submit', function(e) {
 
-  /* 何も処理をかまさないとそのままクレジットカード情報が送信されてしまうので一旦HTMLのFormタグがが従来もっている送信機能を停止させる。 */
+  /* 何も処理をしないとそのままクレジットカード情報が送信されてしまうので一旦HTMLのFormタグがが従来もっている送信機能を停止させる。 */
       e.preventDefault();
   
   /* Stripe.jsを使って、フォームに入力されたコードをStripe側に送信。今回ご紹介している方法の場合、「カード名義」だけはStripe Elementsの仕組みを使っていないため、このままだとカード名義の情報が足りずにカード情報の暗号化ができなくなってしまうので、{name:document.querySelector('#cardName').value}を足すことで、フォームに入力されたカード名義情報も、他の情報と同時にStripeに送ることができるようになる。 */
