@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Payment;
 use App\Item;
-use App\Purchase_history;
 
 class PaymentController extends Controller
 {
