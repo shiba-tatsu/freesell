@@ -55,6 +55,7 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         $item = new Item();
         $item->category_id = $request->category_id;
         $item->status = $request->input('status');
