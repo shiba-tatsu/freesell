@@ -5,15 +5,17 @@
 <div class="container bg-light ">
   <form method='POST' action="{{ route('item.store') }}" enctype="multipart/form-data">
     @csrf
-    <div class="form-group">
-      <label for="file">出品画像</label>
+    <image-form>
+    </image-form>
+      {{--<label for="file">出品画像</label>
       @for($i = 0 ; $i < 3; $i ++)
         <input type="file" id="image" name='image[]' class="form-control-file" multiple>
-      @endfor
+      @endfor--}}
+
       
       
-      <small id="emailHelp" class="form-text text-muted">あなたに関する個人情報を収集することはありません。</small>
-    </div>
+      <!--<small id="emailHelp" class="form-text text-muted">あなたに関する個人情報を収集することはありません。</small>-->
+    <!--</div>-->
 
     <div class="form-group">
       <label for="name">タイトル (100文字まで)</label>
