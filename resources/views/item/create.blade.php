@@ -2,20 +2,11 @@
 
 @section('content')
 @include('layouts.nav')
-<div class="container bg-light ">
+<div class="container bg-light mb-3">
   <form method='POST' action="{{ route('item.store') }}" enctype="multipart/form-data">
     @csrf
-    <image-form>
+    <image-form class="mt-4 mx-3">
     </image-form>
-      {{--<label for="file">出品画像</label>
-      @for($i = 0 ; $i < 3; $i ++)
-        <input type="file" id="image" name='image[]' class="form-control-file" multiple>
-      @endfor--}}
-
-      
-      
-      <!--<small id="emailHelp" class="form-text text-muted">あなたに関する個人情報を収集することはありません。</small>-->
-    <!--</div>-->
 
     <div class="form-group">
       <label for="name">タイトル (100文字まで)</label>
@@ -31,10 +22,19 @@
     </category>
     
     <div class="form-group">
+      <label for="status">商品送料の負担</label>
+      <select id="status" class="form-control" name="status">
+        @foreach(Config::get('status') as $statusIndex => $value)
+            <option value={{ $statusIndex }}>{{ $value }}</option>
+        @endforeach
+      </select>
+    </div>
+    
+    {{--<div class="form-group">
       <label for="item_status">商品の状態</label>
       <input type="number" class="form-control" id="item_status" name="status">
       <small id="emailHelp" class="form-text text-muted">あなたに関する個人情報を収集することはありません。</small>
-    </div>
+    </div>--}}
   
     <div class="form-group">
       <label for="fee">商品送料の負担</label>
@@ -50,8 +50,11 @@
 
     <div class="form-group">
       <label for="fee">発送元の地域</label>
-      <input type="text" class="form-control" id="region" name="region">
-      <small id="emailHelp" class="form-text text-muted">あなたに関する個人情報を収集することはありません。</small>
+      <select id="region" class="form-control" name="region">
+        @foreach(Config::get('region') as $regionIndex => $value)
+            <option value={{ $regionIndex }}>{{ $value }}</option>
+        @endforeach
+      </select>
     </div>
 
     <div class="form-group">
@@ -66,8 +69,11 @@
       <small id="emailHelp" class="form-text text-muted">あなたに関する個人情報を収集することはありません。</small>
     </div>
 
-    <input type='submit' class='btn btn-primary' value='商品を出品'>
+    <div class="d-flex justify-content-center">
+      <input type='submit' class='btn btn-primary' value='商品を出品' style="width:1000px;">
+    </div>
 
   </form>
 </div>
+@include('layouts.footer')
 @endsection

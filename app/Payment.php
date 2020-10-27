@@ -152,4 +152,9 @@ class Payment extends Model
         }
         return false;
     }
+
+    public function item()
+    {
+        return $this->belongsTo('App\Item');
+    }
   }

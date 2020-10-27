@@ -1,14 +1,14 @@
 <template>
   <div class="form-group">
       <label for="category">カテゴリー</label>
-      <div class="row">
-        <select v-model="selectedKey" v-on:change="selected" class="form-control col-3 mr-3 ml-3">
+      <div class="d-flex justify-content-between">
+        <select v-model="selectedKey" v-on:change="selected" class="form-control mr-4">
           <option v-for="(value, key) in items">
             {{ key }}
           </option>
         </select>
         
-        <select name="category_id" class="form-control col-3">
+        <select name="category_id" class="form-control">
           <option v-if="selectedItem" v-for="item in selectedItem" :value="item.id">
             {{ item.name }}
           </option>

@@ -10,6 +10,7 @@ import category from './components/category'
 import item_edit from './components/item_edit'
 import review_modal from './components/review_modal'
 import ImageForm from './components/ImageForm'
+import ItemBody from './components/ItemBody'
 
 Vue.component('star-rating', StarRating);
 Vue.use(VModal);
@@ -25,6 +26,7 @@ const app = new Vue({
     item_edit,
     review_modal,
     ImageForm,
+    ItemBody,
   }
 })
 

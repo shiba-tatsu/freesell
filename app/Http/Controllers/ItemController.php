@@ -5,54 +5,81 @@ namespace App\Http\Controllers;
 use App\Item;
 use App\Image;
 use App\User;
+use App\Payment;
+use App\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    
-    /*public function __construct()
+
+    public function index(Request $request)
     {
-        $user = User::findorFail(Item::find($seller_id));;
-    }
-    */
-    
-     public function index(Request $request)
-    {
-        if($request->has('keyword')) {
-        // SQLのlike句でitemsテーブルを検索する
-            $items = Item::where('name', 'like', '%'.$request->get('keyword').'%')->where('quantity', '>', 0)->paginate(15);
-        }
-        else{
-            $items = Item::where('quantity', '>', 0)->paginate(15);
-        }
         // \Debugbar::info($items);
+
+        // ここからカテゴリーのランキングを取得
+        $payments = Payment::all();
+
+        // カテゴリーの親idをキー、購入された数を値にし、連想配列化する。
+        $arr = array();
+        foreach($payments as $payment){
+            if(array_key_exists($payment->item->category->parent_id, $arr)){
+                $arr[$payment->item->category->parent_id] += $payment->quantity;
+            }else{
+                $arr[$payment->item->category->parent_id] = $payment->quantity;
+            }
+        }
+
+        // ランキング1位から3位を取得
+        $max = array_keys($arr, max(array_values($arr))); // 購入された数の最大値を取得
+        if(count($max) == 1){ 
+            $goldId = $max[0];
+            unset($arr[$goldId]);
+            $max = array_keys($arr, max(array_values($arr)));
+            if(count($max) == 1){
+                $silverId = $max[0];
+                unset($arr[$silverId]);
+                $max = array_keys($arr, max(array_values($arr)));
+                $bronzeId = $max[0];
+            }else{
+                $silverId = $max[0];
+                $bronzeId = $max[1];
+            }
+        }elseif(count($max) == 2){
+            $goldId = $max[0];
+            $silverId = $max[1];
+            unset($arr[$goldId], $arr[$silverId]);
+            $max = array_keys($arr, max(array_values($arr)));
+            $bronzeId = $max[0];
+        }else{
+            $goldId = $max[0];
+            $silverId = $max[1];
+            $bronzeId = $max[2];
+        }
         
-        return view('item/index', ['items' => $items]);
+        // ランキング順位毎に配列を取得
+        $goldLists = Item::whereHas('category', function($query) use($goldId){
+            $query->where('parent_id', $goldId);
+        })->paginate(3);
+
+        $silverLists = Item::whereHas('category', function($query) use($silverId){
+            $query->where('parent_id', $silverId);
+        })->get();
+
+        $bronzeLists = Item::whereHas('category', function($query) use($bronzeId){
+            $query->where('parent_id', $bronzeId);
+        })->get();
+        // カテゴリーランキングの取得完了
+
+        return view('item/index', compact('goldLists', 'silverLists', 'bronzeLists'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('item.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //dd($request);
@@ -73,40 +100,34 @@ class ItemController extends Controller
         foreach($request->file('image') as $img){
             
             Image::create([
-                            $path = Storage::disk('s3')->putFile('/', $img, 'public'),
-                            'image' => Storage::disk('s3')->url($path),
-                            'item_id' => $item->id
-                            ]);
-                            /* ローカルでの画像登録
-                            $uploadImg = $img->getClientOriginalName(),
-                            $filePath = $img->storeAs('public', $uploadImg),
-                            'image' => $uploadImg,
-                            'item_id' => $item->id]);
-                            */
+                $path = Storage::disk('s3')->putFile('/', $img, 'public'),
+                'image' => Storage::disk('s3')->url($path),
+                'item_id' => $item->id
+            ]);
+            /* ローカルでの画像登録
+            $uploadImg = $img->getClientOriginalName(),
+            $filePath = $img->storeAs('public', $uploadImg),
+            'image' => $uploadImg,
+            'item_id' => $item->id]);
+            */
         }
         
         return redirect()->route('item.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Item  $item
-     * @return \Illuminate\Http\Response
-     */
     public function show(Item $item)
     { 
         $reviews = $item->reviews;
-        \Debugbar::info($item, $reviews);
-        return view('item/show', ['item' => $item, 'reviews' => $reviews]);
+        \Debugbar::info($item);
+        $sameUserItems = Item::where('seller_id', $item->seller_id)
+                         ->where('id', '<>', $item->id)->paginate(3);
+
+        $sameCategoryItems = Item::where('category_id', $item->category_id)
+                             ->where('id', '<>', $item->id)->paginate(3);
+        
+        return view('item/show', compact('item', 'reviews', 'sameUserItems', 'sameCategoryItems'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Item  $item
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Item $item)
     {
         return view('item.edit', ['item' => $item]);
@@ -134,25 +155,17 @@ class ItemController extends Controller
         $item->region = $request->input('region');
         $item->delivery_day = $request->input('delivery_day');
         $item->quantity = $request->input('quantity');
-        //$item->seller_id = $request->user()->id;
         $item->save();
-
         
-
         foreach($request->file('image') as $img){
             
             Image::create([
-                            $path = Storage::disk('s3')->putFile('/', $img, 'public'),
-                            'image' => Storage::disk('s3')->url($path),
-                            'item_id' => $item->id
-                            ]);
-                            /* ローカルでの画像登録
-                            $uploadImg = $img->getClientOriginalName(),
-                            $filePath = $img->storeAs('public', $uploadImg),
-                            'image' => $uploadImg,
-                            'item_id' => $item->id]);
-                            */
+                $path = Storage::disk('s3')->putFile('/', $img, 'public'),
+                'image' => Storage::disk('s3')->url($path),
+                'item_id' => $item->id
+            ]);
         }
+
         return redirect()->route('item.index');
     }
 
@@ -166,86 +179,5 @@ class ItemController extends Controller
     {
         $item->delete();
         return redirect('item.index');
-    }
-
-    public function like(Request $request, Item $item)
-    {
-        $item->likes()->detach($request->user()->id);
-        $item->likes()->attach($request->user()->id);
-
-        return [
-            'id' => $item->id,
-            'countLikes' => $item->count_likes,
-        ];
-    }
-
-    public function unlike(Request $request, item $item)
-    {
-        $item->likes()->detach($request->user()->id);
-
-        return [
-            'id' => $item->id,
-            'countLikes' => $item->count_likes,
-        ];
-    }
-
-    // 検索機能
-    public function search(Request $request) {
-
-        if($request->has('keyword')) {
-            // SQLのlike句でitemsテーブルを検索する
-            $items = Item::where('name', 'like', '%'.$request->get('keyword').'%')->where('quantity', '>', 0)->paginate(15);
-            $keyword = $request->keyword;
-            
-        }
-        else{
-            $items = Item::where('quantity', '>', 0)->paginate(15);
-        }
-            // \Debugbar::info($items);
-            
-        return view('item/search', ['items' => $items, 'keyword' => $keyword]);
-    }
-
-    // 絞り込み検索機能
-    public function refined(Request $request){
-        //「または」で検索がかかっている。「かつ」で検索しなければならない。
-        $keyword = $request->input('keyword');
-        $minPrice = $request->input('minPrice');
-        $maxPrice = $request->input('maxPrice');
-        $statusChecked = $request->input('status');
-        $delivery_day = $request->input('delevery_day');
-
-        $query = Item::query();
- 
-        if (!empty($keyword)) {
-            $query->where('name', 'LIKE', "%{$keyword}%");
-            $query->Where('body', 'LIKE', "%{$keyword}%");
-        }
- 
-        if (!empty($minPrice) && !empty($maxPrice)) {
-            $query->whereBetween('price', [$minPrice, $maxPrice]);
-        }
-        elseif(!empty($minPrice)){
-            $query->where('price', '>=', $minPrice);
-        }
-        elseif(!empty($maxPrice)){
-            $query->where('price', '<=', $maxPrice);
-        }
-
-        if (!empty(is_array($statusChecked))) {
-            foreach($statusChecked as $status){
-                $query->orWhere('status', $status);
-            }
-        }
-
-        if (!empty($delivery_day)) {
-            $query->where('delivery_day', '<=', $delively_day);
-        }
- 
-        $items = $query->paginate(15);
-
-        \Debugbar::info($items);
-
-        return view('item/refined', compact('items','keyword','minPrice', 'maxPrice', 'statusChecked', 'delivery_day'));
     }
 }

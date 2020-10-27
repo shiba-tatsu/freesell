@@ -2,38 +2,29 @@
 
 @section('content')
     @include('layouts.nav')
-    <div class="container">
+    <div class="container-fluid">
+        <h2 class="text-center mt-4 mb-3">人気のカテゴリー</h2>
         <div class="row justify-content-left">
-            @foreach ($items as $item)
-                <div class="col-md-4 mb-2">
-                    <a class="card" href="{{route('item.show', ['item' => $item->id])}}">
-                        <div class="card-header">{{ $item->name }}</div>
-                        {{ $item->price }}
-                        <div class="card-body">
-                            
-                            {{--  ローカルで登録した画像の表示
-                            <img src="{{ asset('storage/' . $item->images[0]->image) }}" alt="image" style="width: 30%; height: auto;"/> --}}
-                            <img src="{{ $item->images[0]->image }}" alt="image" style="width: 30%; height: auto;"/>
-                            
-                        </div>
-                        <div class="card-body pt-0 pb-2 pl-3">
-                            <div class="card-text">
-                              <item-like
-                                :initial-is-liked-by='@json($item->isLikedBy(Auth::user()))'
-                                :initial-count-likes='@json($item->count_likes)'
-                                
-                                :authorized='@json(Auth::check())'
-                                endpoint="{{ route('items.like', ['item' => $item]) }}"
-                                >
-                              </item-like>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endforeach
+            <div class="col-4 text-center">
+                <img src="https://laraheroherotest.s3.ap-northeast-1.amazonaws.com/yXT3mowYbUep4RkD3vMGohcfFdqgHr4NkOgYrOpn.png" class="ranking-image mb-3" >
+                <h4> {{$goldLists[0]->category->parent->name}}</h4>
+            </div>
+            <div class="col-4 text-center">
+                <img src="https://laraheroherotest.s3.ap-northeast-1.amazonaws.com/Dwn9eTmYilSTd3YI4PcPH3HdAEwI3t34E5zSJjtF.png" class="ranking-image mb-3">
+                <h4>{{$silverLists[0]->category->parent->name}}</h4>
+            </div>
+            <div class="col-4 text-center">
+                <img src="https://laraheroherotest.s3.ap-northeast-1.amazonaws.com/FZMv5Nd4chYbXjdWfGRNkTg9mo3t54Iy8heK7bnG.png" class="ranking-image mb-3">
+                <h4>{{$bronzeLists[0]->category->parent->name}}</h4>
+            </div>
         </div>
-        <div class="row justify-content-center">
-            {{ $items->appends(['keyword' => Request::get('keyword')])->links() }}
+
+        <div class="bg-white row pl-5">
+            @include('parts.item_index.goldItem')
+            @include('parts.item_index.silverItem')
+            @include('parts.item_index.bronzeItem')
         </div>
+        
     </div>
+    @include('layouts.footer')
 @endsection

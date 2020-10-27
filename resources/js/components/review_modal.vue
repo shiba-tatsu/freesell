@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-on:click="show" class="button">show!</div>
+    <div v-on:click="show" class="button">レビューを書く</div>
     <modal name="hello-world" :resizable="true">
       <div class="modal-header">
         <h2>Modal title</h2>

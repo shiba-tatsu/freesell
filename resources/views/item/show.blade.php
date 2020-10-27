@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -12,9 +13,9 @@
     </ol>
   </nav>
 
-  <div class="container">
+  <div class="container mt-4">
     <div class="row justify-content-left">
-      <div class="justify-content-start col-8 bg-light">
+      <div class="justify-content-start col-8 bg-white">
         <div class="row">
           <div class="col-2">
             <ul class="row">
@@ -23,8 +24,8 @@
                   <img src="{{$img->image}}" class="small-image">
                 </li>
               @endforeach
-                </ul>
-              </div>
+            </ul>
+          </div>
 
               <div class="col-4">
                 <ul>
@@ -38,69 +39,30 @@
                 <h1>{{$item->name}}</h1>
                 <a href="{{ route('users.show', ['user' => $item->user->id])}}">{{$item->user->name}}</a>
               </div>
-            </div>
+
+        </div>
 
             <div class="show mb-5">
               {{$item->body}}
             </div>
+
+            @include('parts.item_show.table')
+            
             <item-like
               :initial-is-liked-by='@json($item->isLikedBy(Auth::user()))'
               :initial-count-likes='@json($item->count_likes)'
                                   
               :authorized='@json(Auth::check())'
               endpoint="{{ route('items.like', ['item' => $item]) }}">
-          </item-like>        
-          </div>
+            </item-like>
 
-          @include('item.item_card')
+      </div>
+
+          @include('parts.item_show.item_card')
         </div>
 
-        <div class="border-top border-bottom text-center">
-          同じ出品者の他の商品
-          <div class="row">
-            <div class="col-1">
-            </div>
-            <div class="col-2">
-              <div class="card mb-2 mx-1" style="height: 100px"></div>
-            </div>
-            <div class="col-2">
-              <div class="card mb-2 mx-1" style="height: 100px"></div>
-            </div>
-            <div class="col-2">
-              <div class="card mb-2 mx-1" style="height: 100px"></div>
-            </div>
-            <div class="col-2">
-              <div class="card mb-2 mx-1" style="height: 100px"></div>
-            </div>
-            <div class="col-2">
-              <div class="card mb-2 mx-1" style="height: 100px"></div>
-            </div>
-            
-          </div>
-        </div>
-        <div class="border-top border-bottom text-center">
-          同じ出品者
-          <div class="row">
-            <div class="col-1">
-            </div>
-            <div class="col-2">
-              <div class="card mb-2 mx-1" style="height: 100px"></div>
-            </div>
-            <div class="col-2">
-              <div class="card mb-2 mx-1" style="height: 100px"></div>
-            </div>
-            <div class="col-2">
-              <div class="card mb-2 mx-1" style="height: 100px"></div>
-            </div>
-            <div class="col-2">
-              <div class="card mb-2 mx-1" style="height: 100px"></div>
-            </div>
-            <div class="col-2">
-              <div class="card mb-2 mx-1" style="height: 100px"></div>
-            </div>
-            
-          </div>
-        </div>
+        @include('parts.item_show.same_user_items')
+        @include('parts.item_show.same_category_items')
 
         <div class="reviews row">
           @foreach($reviews as $review)
