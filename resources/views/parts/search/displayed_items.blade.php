@@ -1,7 +1,7 @@
-<div class="col-8">
+<div class="col-9">
   <div class="row justify-content-left">
       @foreach ($items as $item)
-          <div class="col-md-4 mb-2">
+          <div class="col-md-4 mb-5">
               <a class="card" href="{{route('item.show', ['item' => $item->id])}}">
                   <div class="card-header">{{ $item->name }}</div>
                   {{ $item->price }}

@@ -7,10 +7,10 @@
       {{$item->price}}円(税込)
     </div>
     <!-- 購入機能-->
-    
-    @if(Auth::user()->stripe_id !== null)
+
+    @if(Auth::check() && Auth::user()->stripe_id !== null)
       <form method='POST' action="{{ route('payment.buy') }}" enctype="multipart/form-data">
-        @csrf  
+        @csrf
         <input type="hidden" name="item_name" value="{{$item->name}}">
         <input type="hidden" name="item_price" value={{$item->price}}>
         <input type="hidden" name="item_fee" value={{$item->fee}}>
@@ -34,17 +34,20 @@
 
 
 
-    <button class="btn bg-light mt-4 mx-3">
+    {{--<button class="btn bg-light mt-4 mx-3">
       <a href="{{ route('reviews.create', ['item' => $item->id])}}">
       レビューを書く
       </a>
-    </button>
-    <form method='POST' action="{{ route('reviews.store') }}" enctype="multipart/form-data">
-      @csrf  
-        <input type="hidden" name="item_id" value="{{$item->id}}">
-        <review_modal>
-        </review_modal>
-    </form>
+    </button>--}}
+    <div class="btn bg-success">
+      <form method='POST' action="{{ route('reviews.store') }}" enctype="multipart/form-data">
+        @csrf  
+          <input type="hidden" name="item_id" value="{{$item->id}}">
+          <review_modal>
+          </review_modal>
+      </form>
+    </div>
+    
 
     
   </div>

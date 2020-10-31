@@ -11,11 +11,10 @@ class UserController extends Controller
 {
     public function show($id)
     {
-        $user = User::findorFail($id); 
-
         $userChatRooms = Auth::user()->chatRooms;
 
         $sellerChatRooms = Auth::user()->sellerChatRooms;
+
         return view('users.show', compact('userChatRooms', 'sellerChatRooms'));
     }
 
@@ -24,6 +23,16 @@ class UserController extends Controller
         $defaultCard = Payment::getDefaultcard($user);
 
         return view('users.index', compact('user', 'defaultCard'));
+    }
+
+    public function changeProfile($id){
+        return view('users.profile');
+    }
+
+    public function storeProfile(Request $request){
+        dd($request);
+
+        return redirect('users.show');
     }
 
 }
