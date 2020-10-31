@@ -2034,20 +2034,6 @@ __webpack_require__.r(__webpack_exports__);
       return console.log(response);
     });
   }
-  /*props: {
-      initialItemBodyNum: {
-        type: Number,
-        default: 0,
-      },
-  },
-  data() {
-      return {
-        itemBodyNum: this.initialItemBodyNum,
-      }
-  },
-  async() {
-   }*/
-
 });
 
 /***/ }),

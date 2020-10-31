@@ -12,7 +12,7 @@
       <th scope="row">{{ Config::get('status')[$item->status] }}</th>
       <td>{{$item->fee}}円</td>
       <td>{{ Config::get('region')[$item->region] }}</td>
-      <td>{{$item->delivery_day}}日</td>
+      <td>{{$item->delivery_day}}日 程度</td>
     </tr>
   </tbody>
 </table>

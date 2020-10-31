@@ -38,6 +38,8 @@ Route::get('/items/{item}',function(){
 //ユーザー機能
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
   Route::get('{user}/show', 'UserController@show')->name('users.show');
+  Route::get('{user}/profile', 'UserController@changeProfile')->name('users.profile');
+  Route::post('{user}/profile', 'UserController@storeProfile')->name('users.storeProfile');
 });
 
 //いいね機能
