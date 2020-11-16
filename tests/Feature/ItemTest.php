@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Item;
 use App\User;
 use App\Category;
+use CategoriesTableSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
