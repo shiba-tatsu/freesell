@@ -11,13 +11,10 @@ use Tests\TestCase;
 class ItemTest extends TestCase
 {
     use RefreshDatabase;
-
-    public function __construct(){
-        $categories = $this->seed('CategoriesTableSeeder');
-    }
     
     public function testIsLikedByNull()
     {
+        $categories = $this->seed('CategoriesTableSeeder');
         $item = factory(Item::class)->create();
 
         $result = $item->isLikedBy(null);
