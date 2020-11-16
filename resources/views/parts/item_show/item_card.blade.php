@@ -1,4 +1,4 @@
-<div class="col-4 bg-white px-5 py-3">
+<div class="col-4 px-5">
   <div class="card" style="height: 270px">
     <div class="leftovers my-2 text-center">
       残り: {{$item->quantity}}品
