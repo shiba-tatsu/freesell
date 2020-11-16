@@ -11,6 +11,10 @@ use Tests\TestCase;
 class ItemTest extends TestCase
 {
     use RefreshDatabase;
+
+    public function __construct(){
+        $categories = $this->seed('CategoriesTableSeeder');
+    }
     
     public function testIsLikedByNull()
     {
@@ -34,7 +38,7 @@ class ItemTest extends TestCase
 
     public function testIsLikedByAnother()
     {
-        $categories = $this->seed('CategoriesTableSeeder');
+        
         $item = factory(Item::class)->create();
         $user = factory(User::class)->create();
         $another = factory(User::class)->create();
