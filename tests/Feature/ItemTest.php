@@ -34,6 +34,7 @@ class ItemTest extends TestCase
 
     public function testIsLikedByAnother()
     {
+        $categories = $this->seed('CategoriesTableSeeder');
         $item = factory(Item::class)->create();
         $user = factory(User::class)->create();
         $another = factory(User::class)->create();
