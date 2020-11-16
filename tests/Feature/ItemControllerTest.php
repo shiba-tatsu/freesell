@@ -12,8 +12,7 @@ use App\Image;
 
 class ItemControllerTest extends TestCase
 {
-    //use RefreshDatabase;
-    use DatabaseTransactions;
+    use RefreshDatabase;
     
     public function testIndex()
     {
@@ -21,7 +20,8 @@ class ItemControllerTest extends TestCase
         
         // カテゴリーの人気ランキングを作成するためのテストデータを作成
         $categories = $this->seed('CategoriesTableSeeder');
-        $items = factory(Item::class, 10)->create()->each(function ($item) {
+        $items = factory(Item::class, 10)->create(['category_id' => $faker->numberBetween(18,245)])
+            ->each(function ($item) {
             factory(Image::class, 2)->create(['item_id' => $item->id]);
         });
         $payments = $items->each(function ($item) {
