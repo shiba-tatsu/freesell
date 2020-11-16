@@ -91,7 +91,7 @@ return [
             'prefix_indexes' => true,
         ],
 
-        /*'testing' => [
+        'testing' => [
                        'driver'   => 'sqlite',
                        'database' => ':memory:', // SQLiteのインメモリ機能を使用
                        'prefix'   => '',
@@ -99,7 +99,7 @@ return [
                            // テストデータの永続化
                            PDO::ATTR_PERSISTENT => false,
                        ],
-        ],*/
+        ],
 
     ],
 
