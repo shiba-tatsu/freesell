@@ -15,7 +15,6 @@ class ItemTest extends TestCase
 
     public function testIsLikedByNull()
     {
-        //$categories = $this->seed('CategoriesTableSeeder');
         $categories = factory(Category::class, 10)->create();
         $item = factory(Item::class)->create(['category_id' =>  $categories[0]->id]);
 
@@ -26,7 +25,8 @@ class ItemTest extends TestCase
 
     public function testIsLikedByTheUser()
     {
-        $item = factory(Item::class)->create();
+        $categories = factory(Category::class, 10)->create();
+        $item = factory(Item::class)->create(['category_id' =>  $categories[0]->id]);
         $user = factory(User::class)->create();
         $item->likes()->attach($user);
 
@@ -38,7 +38,8 @@ class ItemTest extends TestCase
     public function testIsLikedByAnother()
     {
         
-        $item = factory(Item::class)->create();
+        $categories = factory(Category::class, 10)->create();
+        $item = factory(Item::class)->create(['category_id' =>  $categories[0]->id]);
         $user = factory(User::class)->create();
         $another = factory(User::class)->create();
         $item->likes()->attach($another);
