@@ -8,7 +8,6 @@ use Tests\TestCase;
 use App\User;
 use App\Item;
 use App\Payment;
-use App\Category;
 use App\Image;
 
 class ItemControllerTest extends TestCase
@@ -21,7 +20,8 @@ class ItemControllerTest extends TestCase
         
         // カテゴリーの人気ランキングを作成するためのテストデータを作成
         $categories = $this->seed('CategoriesTableSeeder');
-        $items = factory(Item::class, 10)->create()->each(function ($item) {
+        $items = factory(Item::class, 10)->create()
+            ->each(function ($item) {
             factory(Image::class, 2)->create(['item_id' => $item->id]);
         });
         $payments = $items->each(function ($item) {
@@ -45,14 +45,12 @@ class ItemControllerTest extends TestCase
 
     public function testAuthCreate()
     {
-        // テストに必要なUserモデルを「準備」
+        // テストに必要なUserモデルを用意
         $user = factory(User::class)->create();
 
-        // ログインして記事投稿画面にアクセスすることを「実行」
         $response = $this->actingAs($user)
             ->get(route('item.create'));
 
-        // レスポンスを「検証」
         $response->assertStatus(200)
             ->assertViewIs('item.create');
     }

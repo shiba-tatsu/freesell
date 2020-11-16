@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Item;
 use App\User;
+use App\Category;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -11,10 +12,11 @@ use Tests\TestCase;
 class ItemTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     public function testIsLikedByNull()
     {
-        $item = factory(Item::class)->create();
+        $categories = factory(Category::class, 10)->create();
+        $item = factory(Item::class)->create(['category_id' =>  $categories[0]->id]);
 
         $result = $item->isLikedBy(null);
 
@@ -23,7 +25,8 @@ class ItemTest extends TestCase
 
     public function testIsLikedByTheUser()
     {
-        $item = factory(Item::class)->create();
+        $categories = factory(Category::class, 10)->create();
+        $item = factory(Item::class)->create(['category_id' =>  $categories[0]->id]);
         $user = factory(User::class)->create();
         $item->likes()->attach($user);
 
@@ -34,7 +37,9 @@ class ItemTest extends TestCase
 
     public function testIsLikedByAnother()
     {
-        $item = factory(Item::class)->create();
+        
+        $categories = factory(Category::class, 10)->create();
+        $item = factory(Item::class)->create(['category_id' =>  $categories[0]->id]);
         $user = factory(User::class)->create();
         $another = factory(User::class)->create();
         $item->likes()->attach($another);
