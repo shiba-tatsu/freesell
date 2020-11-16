@@ -15,7 +15,7 @@ class ItemTest extends TestCase
     
     public function testIsLikedByNull()
     {
-        
+        $categories = $this->seed('CategoriesTableSeeder');
         $item = factory(Item::class)->create();
 
         $result = $item->isLikedBy(null);

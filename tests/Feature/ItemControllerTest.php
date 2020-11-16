@@ -8,7 +8,7 @@ use Tests\TestCase;
 use App\User;
 use App\Item;
 use App\Payment;
-use App\Category;
+
 use App\Image;
 
 class ItemControllerTest extends TestCase
