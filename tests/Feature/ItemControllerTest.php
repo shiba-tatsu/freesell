@@ -8,7 +8,6 @@ use Tests\TestCase;
 use App\User;
 use App\Item;
 use App\Payment;
-
 use App\Image;
 
 class ItemControllerTest extends TestCase
@@ -20,7 +19,7 @@ class ItemControllerTest extends TestCase
         $this->withoutExceptionHandling();
         
         // カテゴリーの人気ランキングを作成するためのテストデータを作成
-        $categories = $this->seed('CategoriesTableSeeder');
+        
         $items = factory(Item::class, 10)->create()->each(function ($item) {
             factory(Image::class, 2)->create(['item_id' => $item->id]);
         });
