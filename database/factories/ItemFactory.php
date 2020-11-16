@@ -19,5 +19,6 @@ $factory->define(Item::class, function (Faker $faker) {
         'seller_id' => function() {
             return factory(User::class);
         },
+        'category_id' => $faker->numberBetween(18,245)
     ];
 });

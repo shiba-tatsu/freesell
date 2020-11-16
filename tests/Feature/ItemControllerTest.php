@@ -20,7 +20,7 @@ class ItemControllerTest extends TestCase
         
         // カテゴリーの人気ランキングを作成するためのテストデータを作成
         $categories = $this->seed('CategoriesTableSeeder');
-        $items = factory(Item::class, 10)->create(['category_id' => $faker->numberBetween(18,245)])
+        $items = factory(Item::class, 10)->create()
             ->each(function ($item) {
             factory(Image::class, 2)->create(['item_id' => $item->id]);
         });
