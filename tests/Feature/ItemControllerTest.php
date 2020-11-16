@@ -12,14 +12,15 @@ use App\Image;
 
 class ItemControllerTest extends TestCase
 {
-    use RefreshDatabase;
+    //use RefreshDatabase;
+    use DatabaseTransactions;
     
     public function testIndex()
     {
         $this->withoutExceptionHandling();
         
         // カテゴリーの人気ランキングを作成するためのテストデータを作成
-        
+        $categories = $this->seed('CategoriesTableSeeder');
         $items = factory(Item::class, 10)->create()->each(function ($item) {
             factory(Image::class, 2)->create(['item_id' => $item->id]);
         });

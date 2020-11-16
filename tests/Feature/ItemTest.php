@@ -11,8 +11,9 @@ use Tests\TestCase;
 
 class ItemTest extends TestCase
 {
-    use RefreshDatabase;
-    
+    //use RefreshDatabase;
+    use DatabaseTransactions;
+
     public function testIsLikedByNull()
     {
         $categories = $this->seed('CategoriesTableSeeder');
