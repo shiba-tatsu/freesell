@@ -14,32 +14,34 @@
   </nav>
 
   <div class="container mt-4">
-    <div class="row justify-content-left">
-      <div class="justify-content-start col-8 bg-white">
+    <div class="row justify-content-left bg-white py-4">
+      <div class="justify-content-start col-8 ">
         <div class="row">
-          <div class="col-2">
-            <ul class="row">
-              @foreach($item->images as $img)
-                <li class="col-6">
-                  <img src="{{$img->image}}" class="small-image">
-                </li>
-              @endforeach
-            </ul>
-          </div>
-
-              <div class="col-4">
-                <ul>
-                  <li>
-                    <img src="" class="img-fluid d-block mx-auto big-image">
+            <div class="col-2">
+              <ul class="row">
+                @foreach($item->images as $img)
+                  <li class="col-6">
+                    <img src="{{$img->image}}" class="small-image">
                   </li>
-                </ul>
-              </div>
+                @endforeach
+              </ul>
               
-              <div class="col-6">
-                <h1>{{$item->name}}</h1>
-                <a href="{{ route('users.show', ['user' => $item->user->id])}}">{{$item->user->name}}</a>
-              </div>
+            </div>
 
+            <div class="col-4">
+              <ul>
+                <li>
+                  <img src="{{$item->images[0]->image}}" class="img-fluid d-block mx-auto big-image">
+                </li>
+              </ul>
+            </div>
+              
+              
+            <div class="col-6">
+              <h1>{{$item->name}}</h1>
+              <a href="{{ route('users.show', ['user' => $item->user->id])}}">{{$item->user->name}}</a>
+            </div>
+          
         </div>
 
             <div class="show mb-5">

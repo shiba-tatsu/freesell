@@ -3,6 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Item;
+use App\User;
 use Faker\Generator as Faker;
 
 $factory->define(Item::class, function (Faker $faker) {
@@ -15,7 +16,9 @@ $factory->define(Item::class, function (Faker $faker) {
         'region' => 4,
         'delivery_day' => 23,
         'quantity' => 20,
-        'seller_id' => 2,
-        'category_id' => 47
+        'seller_id' => function() {
+            return factory(User::class);
+        },
+        'category_id' => $faker->numberBetween(18,245)
     ];
 });
