@@ -20,13 +20,14 @@ class ItemControllerTest extends TestCase
         $this->withoutExceptionHandling();
         
         // カテゴリーの人気ランキングを作成するためのテストデータを作成
+        $categories = $this->seed('CategoriesTableSeeder');
         $items = factory(Item::class, 10)->create()->each(function ($item) {
             factory(Image::class, 2)->create(['item_id' => $item->id]);
         });
         $payments = $items->each(function ($item) {
             factory(payment::class)->create(['item_id' => $item->id]);
         });
-        $categories = $this->seed('CategoriesTableSeeder');
+        
         // ここまででテストデータ作成終了
 
         $response = $this->get(route('item.index'));
