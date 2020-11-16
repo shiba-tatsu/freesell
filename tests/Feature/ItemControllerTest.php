@@ -45,14 +45,12 @@ class ItemControllerTest extends TestCase
 
     public function testAuthCreate()
     {
-        // テストに必要なUserモデルを「準備」
+        // テストに必要なUserモデルを用意
         $user = factory(User::class)->create();
 
-        // ログインして記事投稿画面にアクセスすることを「実行」
         $response = $this->actingAs($user)
             ->get(route('item.create'));
 
-        // レスポンスを「検証」
         $response->assertStatus(200)
             ->assertViewIs('item.create');
     }
