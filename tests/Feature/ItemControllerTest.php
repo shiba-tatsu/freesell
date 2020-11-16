@@ -30,6 +30,8 @@ class ItemControllerTest extends TestCase
         
         // ここまででテストデータ作成終了
 
+        $item = factory(Item::class)->create();
+
         $response = $this->get(route('item.index'));
 
         $response->assertStatus(200)

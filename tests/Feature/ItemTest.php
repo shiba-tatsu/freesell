@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Item;
 use App\User;
 use App\Category;
-use CategoriesTableSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -16,8 +15,7 @@ class ItemTest extends TestCase
     
     public function testIsLikedByNull()
     {
-        $this->withoutExceptionHandling();
-        $categories = $this->seed(CategoriesTableSeeder::class);
+        $categories = $this->seed('CategoriesTableSeeder');
         $item = factory(Item::class)->create();
 
         $result = $item->isLikedBy(null);
