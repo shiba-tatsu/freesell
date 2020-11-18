@@ -79,7 +79,7 @@ jobs:
       - run: npm run prod
       - run:
           name: archive artifacts
-          command: zip -ryq laravel-ci.zip .
+          command: zip -ryq freesell.zip .
       - aws-cli/install
       - run:
           name: upload artifacts to s3
@@ -88,8 +88,8 @@ jobs:
           name: deploy to prod
           command: |
             aws deploy create-deployment \
-            --application-name laravel-ci \
-            --deployment-group-name laravel-ci \
+            --application-name freesell \
+            --deployment-group-name freesell \
             --s3-location bucket=${AWS_S3_BUCKET_NAME},key=freesell.zip,bundleType=zip
 
 orbs:
