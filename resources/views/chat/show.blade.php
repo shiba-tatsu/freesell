@@ -36,6 +36,8 @@ var chat_room_id = {{ $chat_room_id }};
 var user_id = {{ Auth::user()->id }};
 var current_user_name = "{{ Auth::user()->name }}";
 var chat_room_seller_name = "{{ $chat_room_seller->name }}";
+var mix_pusher_app_key = "{{ config('pusher.mix_pusher_app_key') }}";
+var mix_pusher_app_cluster = "{{ config('pusher.mix_pusher_app_cluster') }}"
 </script>
 
 @endsection
