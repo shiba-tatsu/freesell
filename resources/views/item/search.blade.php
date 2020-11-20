@@ -3,6 +3,7 @@
 @section('content')
     @include('layouts.nav')
     {{env('APP_NAME', '取得できてません')}}
+    {{config('app.name')}}
     test
     @include('parts.search.search_main')
     
