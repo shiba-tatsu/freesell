@@ -62,7 +62,7 @@ jobs:
               composer install -n --prefer-dist && \
               npm ci && \
               npm run prod && \
-              php artisan migrate --force 
+              php artisan migrate --force"
 workflows:
   version: 2
   build_deploy:
