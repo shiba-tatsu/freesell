@@ -2,6 +2,7 @@
 
 @section('content')
     @include('layouts.nav')
+    {{env('APP_NAME')}}
     @include('parts.search.search_main')
     
     <div class="row justify-content-center">
