@@ -59,7 +59,7 @@ jobs:
           command: |
             ssh -o StrictHostKeyChecking=no -t webapp@${HOST_NAME} "cd freesell && \
               git pull origin master && \
-              composer install -n --no-dev --prefer-dist && \
+              composer install -n --prefer-dist && \
               npm ci && \
               npm run prod && \
               php artisan migrate --force && \
