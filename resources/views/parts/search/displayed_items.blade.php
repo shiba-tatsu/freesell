@@ -6,7 +6,12 @@
                   <div class="card-header">{{ $item->name }}</div>
                   {{ $item->price }}
                   <div class="card-body">
-                      <img src="{{ $item->images[0]->image }}" alt="image" style="width: 30%; height: auto;"/>
+                    
+                    @if(count($item->images) >= 1)
+                        <img src="{{ $item->images[0]->image }}" alt="image" style="width: 30%; height: auto;"/>
+                    @else
+                        <img src="" alt="image" style="width: 30%; height: auto;"/>
+                    @endif
                       
                   </div>
                   <div class="card-body pt-0 pb-2 pl-3">

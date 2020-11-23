@@ -65,11 +65,11 @@ class ItemController extends Controller
 
         $silverLists = Item::whereHas('category', function($query) use($silverId){
             $query->where('parent_id', $silverId);
-        })->get();
+        })->paginate(3);
 
         $bronzeLists = Item::whereHas('category', function($query) use($bronzeId){
             $query->where('parent_id', $bronzeId);
-        })->get();
+        })->paginate(3);
         // カテゴリーランキングの取得完了
 
         return view('item/index', compact('goldLists', 'silverLists', 'bronzeLists'));
@@ -178,6 +178,6 @@ class ItemController extends Controller
     public function destroy(Item $item)
     {
         $item->delete();
-        return redirect('item.index');
+        return redirect()->route('item.index');
     }
 }

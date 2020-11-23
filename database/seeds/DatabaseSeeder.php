@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             CategoriesTableSeeder::class,
             UsersTableSeeder::class,
             ItemsTableSeeder::class,
+            PaymentsTableSeeder::class,
             ]);
     }
 }

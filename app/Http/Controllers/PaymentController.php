@@ -32,6 +32,7 @@ class PaymentController extends Controller
          * フロントエンドから送信されてきたtokenを取得する
          * 
          **/
+        //dd($request);
         $token = $request->stripeToken;
         $user = Auth::user(); 
         $ret = null;
@@ -97,19 +98,10 @@ class PaymentController extends Controller
         \Stripe\Stripe::setApiKey(\Config::get('payment.stripe_secret_key'));
         
         try {
-            Payment::create([
-                'item_id' =>$request->item_id,
-                'user_id' =>$request->user_id,
-                'name' =>$request->name,
-                'postal' =>$request->postal,
-                'rigion' =>$request->region,
-                'city' =>$request->city,
-                'address' =>$request->address,
-                'phoneNumber' =>$request->phonenumber,
-                'quantity' =>$request->quantity
-            ]);
             
             $user = User::find(Auth::id());
+            $item = Item::find($request->item_id);
+            // stripeにデータを送信
             $chargeOject = [
                 'amount'      => $request->item_price * $request->quantity + $request->item_fee,
                 'currency'    => 'jpy',
@@ -118,6 +110,24 @@ class PaymentController extends Controller
             ];
 
             $charge = \Stripe\Charge::create($chargeOject);
+
+            // 購入テーブルにデータを保存
+            Payment::create([
+                'item_id' => $request->item_id,
+                'user_id' => $request->user_id,
+                'name' => $request->name,
+                'postal' => $request->postal,
+                'rigion' => $request->region,
+                'city' => $request->city,
+                'address' => $request->address,
+                'phoneNumber' => $request->phonenumber,
+                'quantity' => $request->quantity,
+                'stripe_charge_id' => $charge->id
+            ]);
+
+            // 購入した数だけ商品の数を減らす
+            $item->quantity -= $request->quantity;
+            $item->save();
 
         } catch (\Stripe\Exception\CardException $e) {
             $body = $e->getJsonBody();

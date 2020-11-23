@@ -1,12 +1,13 @@
-@extends('layouts.layout')
+@extends('layouts.chatapp')
 
 @section('content')
 
+@include('layouts.nav')
 <div class="chatPage">
   <header class="header">
   {{--<a href="{{route('')}}" class="linkToMatching"></a>--}}
     <div class="chatPartner">
-      <div class="chatPartner_img"><img src="/storage/images/{{$chat_room_seller -> img_name}}"></div>
+      <div class="chatPartner_img"><img src=""></div>
       <div class="chatPartner_name">{{ $chat_room_seller -> name }}</div>
     </div>
   </header>
