@@ -9,7 +9,7 @@ use Auth;
 class Payment extends Model
 {
     protected $fillable = [
-        'item_id', 'user_id','name', 'postal', 'rigion', 'city', 'address', 'phoneNumber','quantity' 
+        'item_id', 'user_id','name', 'postal', 'rigion', 'city', 'address', 'phoneNumber','quantity', 'stripe_charge_id'
     ];
     
     /**
@@ -69,10 +69,7 @@ class Payment extends Model
 
         try {
             $customer = \Stripe\Customer::retrieve($user->stripe_id);
-            //dd($token);
-            //$card = $customer->default_source->create(['default_source' => $token]);
             $card = $customer->sources->create(['source' => $token]);
-            //$card = $customer->default_source->
 
             if (isset($customer)) {
                 $customer->default_source = $card["id"];
@@ -105,8 +102,7 @@ class Payment extends Model
      */
     protected static function getDefaultcard($user)
     {
-        //\Stripe\Stripe::setApiKey(\Config::get('payment.stripe_secret_key'));
-        \Stripe\Stripe::setApiKey('sk_test_51HRgBIJ3MplAPBf1ZCoiwgobqyIfujW8aWAJrYbZGj8iaQTuIQnOvAL3ICj7TR0lURBvrZDEpAjCG6CMTxU4zPyI00amNFjtcf');
+        \Stripe\Stripe::setApiKey(\Config::get('payment.stripe_secret_key'));
 
         $default_card = null;
 
@@ -148,6 +144,8 @@ class Payment extends Model
                 $user->stripe_id,
                 $card->id
             );
+            Auth::user()->stripe_id = null;
+            Auth::user()->save();
             return true;
         }
         return false;

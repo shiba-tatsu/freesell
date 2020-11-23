@@ -20,7 +20,7 @@
 <body>
   <div id="app">
     @yield('content')
-  </div> {{--この行を追加--}}
+  </div>
 
   <script src="{{ mix('js/app.js') }}"></script>
 

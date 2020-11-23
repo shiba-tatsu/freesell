@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.nav')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -40,9 +41,6 @@
                     </div>
 
                     @isset($defaultCard)
-                        <div class="form-group">
-                            <a href="{{route('payment.form')}}" class="btn btn-primary">使用するクレジットカード情報を変更</a>
-                        </div>
 
                         <div class="form-group">
                             <form action="{{route('payment.destroy')}}" method="POST">

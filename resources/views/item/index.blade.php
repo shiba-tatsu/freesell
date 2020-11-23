@@ -20,7 +20,7 @@
             </div>
 
             <!-- 人気ランキングの商品-->
-            <div class="bg-white row pl-5">
+            <div class="bg-white pl-5">
                 @include('parts.item_index.goldItem')
                 @include('parts.item_index.silverItem')
                 @include('parts.item_index.bronzeItem')

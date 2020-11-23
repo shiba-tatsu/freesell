@@ -1,5 +1,5 @@
-<h5 class="mb-3 pt-3 col-12 text-center">{{($silverLists[0]->category->parent->name)}}の商品</h5>
-<div class="row justify-content-left">
+<h5 class="mb-3 pt-3 text-center">{{($silverLists[0]->category->parent->name)}}の商品</h5>
+<div class="d-flex flex-row">
             
     @foreach($silverLists as $silverItem)
       <div class="col-md-4 mb-2">

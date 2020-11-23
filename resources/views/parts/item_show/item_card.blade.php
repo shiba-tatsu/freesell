@@ -8,45 +8,53 @@
     </div>
     <!-- 購入機能-->
 
-    @if(Auth::check() && Auth::user()->stripe_id !== null)
-      <form method='POST' action="{{ route('payment.buy') }}" enctype="multipart/form-data">
-        @csrf
-        <input type="hidden" name="item_name" value="{{$item->name}}">
-        <input type="hidden" name="item_price" value={{$item->price}}>
-        <input type="hidden" name="item_fee" value={{$item->fee}}>
-        <input type="hidden" name="item_id" value="{{$item->id}}">
+    @if(Auth::Check() && Auth::user()->id === $item->seller_id)
+      <a class="btn bg-primary" href="{{route('item.edit', ['item' => $item->id])}}">
+        編集する
+      </a>
 
-        <!-- 購入する数-->
-        <div class="form-group mt-2 mx-3">
-          <label for="name">数量</label>
-          <select name="item_quantity">
-            @for ($i = 1; $i < $item->quantity; $i++)
-              <option value="{{$i}}">{{$i}}</option>
-            @endfor
-          </select>
-        </div>
+      <div class="btn bg-success">
+        <form method='POST' action="{{ route('item.destroy', ['item' => $item->id]) }}" enctype="multipart/form-data">
+          @csrf  
+            <input type="hidden" name="item_id" value="{{$item->id}}">
+            <item-delete />
+        </form>
+      </div>
+    @else
+
+      @if(Auth::check() && Auth::user()->stripe_id !== null)
+        <form method='POST' action="{{ route('payment.buy') }}" enctype="multipart/form-data">
+          @csrf
+          <input type="hidden" name="item_name" value="{{$item->name}}">
+          <input type="hidden" name="item_price" value={{$item->price}}>
+          <input type="hidden" name="item_fee" value={{$item->fee}}>
+          <input type="hidden" name="item_id" value="{{$item->id}}">
+
+          <!-- 購入する数-->
+          <div class="form-group mt-2 mx-3">
+            <label for="name">数量</label>
+            <select name="item_quantity">
+              @for ($i = 1; $i < $item->quantity; $i++)
+                <option value="{{$i}}">{{$i}}</option>
+              @endfor
+            </select>
+          </div>
+
+          <button class="btn bg-primary" style="width: 269px">購入</button>
           
-        <div class="form_group">
-          <button type="submit" class="btn bg-primary">購入</button>
-        </div>
-      </form>
+        </form>
+      @endif
+      <div class="btn bg-success">
+        <form method='POST' action="{{ route('reviews.store') }}" enctype="multipart/form-data">
+          @csrf  
+            <input type="hidden" name="item_id" value="{{$item->id}}">
+            <review_modal>
+            </review_modal>
+        </form>
+      </div>
     @endif
 
-
-
-    {{--<button class="btn bg-light mt-4 mx-3">
-      <a href="{{ route('reviews.create', ['item' => $item->id])}}">
-      レビューを書く
-      </a>
-    </button>--}}
-    <div class="btn bg-success">
-      <form method='POST' action="{{ route('reviews.store') }}" enctype="multipart/form-data">
-        @csrf  
-          <input type="hidden" name="item_id" value="{{$item->id}}">
-          <review_modal>
-          </review_modal>
-      </form>
-    </div>
+    
     
 
     
