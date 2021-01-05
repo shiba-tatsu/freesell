@@ -1,4 +1,4 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<p align="center"><img src="https://laraheroherotest.s3-ap-northeast-1.amazonaws.com/ZQcblx8Tfr3V7KoX75pVSWgVJvtr93WgC5QlDwAZ.png" width="400"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
@@ -7,66 +7,71 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## freesellについて
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+このアプリケーションは、フリーマーケット用の通販サイトです。  
+PHPではよく通販のサイトの開発がされているようなので、今まで学習してきたことの、アウトプットも兼ねて作成することとしました。  
+学習サイトやブログのコピーアンドペーストをするのではなく、できるだけ自分で必要な機能を考えたりコードを書くことを意識しました。  
+  
+## freesellの機能一覧
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. 新規登録、ログイン機能  
+2. 商品投稿・編集・削除
+3. 商品お気に入り機能
+4. クレジットカード機能
+5. 商品購入機能
+6. 商品レビュー機能
+7. 出品者とユーザーでのリアルタイムチャット機能
+8. googleログイン
+9. 商品検索、絞り込み検索
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## freesellの技術一覧
 
-## Learning Laravel
+### インフラ
+MAMP, AWS(EC2), CircleCI  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### フロントエンド 
+Bootstrap4, Sass, jQuery, Vue.js, webpack  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### バッグエンド 
+PHP, Laravel  
 
-## Laravel Sponsors
+### API 
+Goodle, Pusher, stripe  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### テスト 
+PHPUnit
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
+### ライブラリ
 
-## Contributing
+composer  
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+kalnoy/nestedset (テーブル内を階層構造化、商品カテゴリーで使用)  
+laravel/socialite (googleログインで使用)  
+league/flysystem-aws-s3-v3 (awsのS3に画像を投稿する際に使用)  
+pusher/pusher-php-server (リアルタイムチャット機能で使用)
 
-## Security Vulnerabilities
+npm  
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+vue-js-modal(モーダルウインドウを作成する際に使用)  
+vue-star-rating(商品評価機能で、星の数でレビューを投稿する際に使用)  
+laravel-echo, pusher-js(pusherを使用しての、リアルタイムチャット機能で使用)
 
-## License
+## freesellの使い方
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. ヘッダーのRegisterをクリック  
+2. 必要な情報を記入し、アカウント作成  
+3. ヘッダーのユーザー名をクリックし、ユーザー詳細のクレジットカード登録をクリック  
+4. クレジットカード情報を新規登録ボタンをクリックし、登録画面でカード番号に「4242 4242 4242 4242」、セキュリティコードに「123」、有効期限に「12/21」、カード名義に「テスト」と記入し、カードを登録するボタンをクリックする  
+5. ヘッダーの商品を出品するをクリック  
+6. 画像を投稿し、必要な情報を記入し商品を出品  
+7. ヘッダーの商品検索フォームに何も記入せずにクリックし、最後のページをクリックすると先ほど投稿した商品が表示されるので、そちらをクリック  
+8. 商品詳細画面で編集ボタン、削除ボタンが表示されるので、そちらをクリックすると編集や削除が可能  
+9. 商品検索ボタンをクリックすると、画面左側に絞り込み検索機能があり、そちらをクリックすると絞り込み検索が可能  
+10. 現在ログインしているアカウント以外で投稿した商品をクリック  
+11. 商品詳細画面のハートボタンをクリックするとお気に入りが可能  
+12. 出品者に相談するボタンをクリックするとチャット画面に遷移し、メッセージを入力した後Enterを押すことでチャットが可能  
+13. 商品詳細画面でレビューを書くボタンをクリックすることで、レビューの投稿が可能  
+14. 商品詳細画面で商品の数量を選択し、購入ボタンをクリックすると、商品購入画面に遷移
+15. 必要な情報を記入し、購入するボタンをクリックすることで、商品を購入できる
+16. ヘッダーのユーザー名をクリックし、ログアウトボタンをクリックすることでログアウトが可能
