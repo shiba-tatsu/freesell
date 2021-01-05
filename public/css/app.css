@@ -17025,6 +17025,14 @@ ul {
   word-wrap: break-word;
 }
 
+.reviews {
+  margin-left: 70px;
+}
+
+.reviews .review p {
+  font-size: 20px;
+}
+
 .ranking-image {
   height: 200px;
   width: 250px;
@@ -17033,6 +17041,12 @@ ul {
 footer {
   padding: 20px 0;
   background-color: #333333;
+}
+
+.userBtn {
+  width: 200px;
+  height: 50px;
+  border: none;
 }
 
 .chatPage input[type=text]:focus {
@@ -17058,9 +17072,15 @@ footer {
   transform: rotate(45deg);
 }
 
+.chatPage .header .chatPartner {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .chatPage .header .chatPartner_name {
-  margin-top: 10px;
+  margin-left: 7px;
   text-align: center;
+  font-size: 35px;
 }
 
 .chatPage .header .chatPartner_img {

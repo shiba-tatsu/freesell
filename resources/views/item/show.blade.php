@@ -13,7 +13,7 @@
     </ol>
   </nav>
 
-  <div class="container mt-4">
+  <div class="container-fluid mt-4">
     <div class="row justify-content-left bg-white py-4">
       <div class="justify-content-start col-8 ">
         <div class="row">
@@ -66,15 +66,7 @@
         @include('parts.item_show.same_user_items')
         @include('parts.item_show.same_category_items')
 
-        <div class="reviews row">
-          @foreach($reviews as $review)
-            {{$review->title}}<br>
-            {{$review->body}}<br>
-            {{$review->user->name}}
-            <star-rating :increment="0.5" rating="{{$review->star}}" read-only="true">
-            </star-rating><br>
-          @endforeach
-        </div>
+        @include('parts.item_show.reviews')
 
       </div>
   @include('layouts.footer')

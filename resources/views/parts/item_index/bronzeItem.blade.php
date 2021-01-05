@@ -2,17 +2,18 @@
 <div class="d-flex flex-row mb-5">
             
     @foreach($bronzeLists as $bronzeItem)
-      <div class="col-md-4 mb-2">
+      <div class="col-md-4 mb-4">
         <a class="card" href="{{route('item.show', ['item' => $bronzeItem->id])}}">
-          <div class="card-header">{{ $bronzeItem->name }}</div>
-          {{ $bronzeItem->price }}
+          <div class="card-header text-center">{{ $bronzeItem->name }}</div>
           <div class="card-body">
                         
-            <img src="{{ $bronzeItem->images[0]->image }}" alt="image" style="width: 30%; height: auto;"/>
+            <img src="{{ $bronzeItem->images[0]->image }}" alt="image" style="width: 100%; height: auto;"/>
                         
           </div>
+          
           <div class="card-body pt-0 pb-2 pl-3">
             <div class="card-text">
+              <p class="text-center">{{ $bronzeItem->price + $bronzeItem->fee }}円(送料込み)</p>
               <item-like
                 :initial-is-liked-by='@json($bronzeItem->isLikedBy(Auth::user()))'
                 :initial-count-likes='@json($bronzeItem->count_likes)'

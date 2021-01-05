@@ -20,9 +20,12 @@
       transform: rotate(45deg);
     }
     .chatPartner {
+      display: flex;
+      justify-content: flex-start;
       &_name {
-        margin-top: 10px;
+        margin-left: 7px;
         text-align: center;
+        font-size: 35px;
       }
       &_img {
         width: 50px;

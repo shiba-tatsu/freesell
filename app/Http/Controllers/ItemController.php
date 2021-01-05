@@ -7,6 +7,7 @@ use App\Image;
 use App\User;
 use App\Payment;
 use App\Category;
+use App\Review;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -124,8 +125,9 @@ class ItemController extends Controller
 
         $sameCategoryItems = Item::where('category_id', $item->category_id)
                              ->where('id', '<>', $item->id)->paginate(3);
-        
-        return view('item/show', compact('item', 'reviews', 'sameUserItems', 'sameCategoryItems'));
+
+        $reviewAverage = Review::where('item_id', $item->id)->avg('star');
+        return view('item/show', compact('item', 'reviews', 'sameUserItems', 'sameCategoryItems', 'reviewAverage'));
     }
 
     public function edit(Item $item)
