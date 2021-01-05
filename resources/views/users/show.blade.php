@@ -9,7 +9,7 @@
   </div>
   <div class="row mb-5">
     <a class="col-4 p-2 text-center" href="{{route('payment.payment')}}">
-      <button type="button" class="userBtn btn-warning">クレジットカード登録</button>
+      <button type="button" class="userBtn ">クレジットカード登録</button>
     </a>
     <div class="col-4 p-2 text-center">
       <button type="button" class="userBtn btn-warning">プロフィール編集</button>
