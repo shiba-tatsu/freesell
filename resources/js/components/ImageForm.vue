@@ -10,7 +10,7 @@
         </label>
       </div>
     </div>
-    <div v-else-if="data.ListLength == 1">
+    <!--<div v-else-if="data.ListLength == 1">
       <div class="form-group testform row">
         <label class="testdesuyo col-6">
           ラベル
@@ -19,23 +19,53 @@
         </label>
         <img :src="data.image" class="imgimg col-6 px-2 py-4 justify-content-end">
       </div>
-    </div>
+    </div>-->
 
-    <div v-else-if="data.ListLength <= 4">
+    <!--<div v-else-if="data.ListLength <= 4">
       <div class="form-group testform">
-        <div class="row">
+        <div class="row testRrr">
           <div v-for="bitai in data.ImList" class="col-3">
-            <img :src="bitai" class="bitaimg">
+            <img :src="bitai" class="bitaimg" style="height: 30px; width: 30px;">
           </div>
         </div>
-        <label class="testdesuyo row">
+        <label class="testdesu row">
           ラベル
           <input type="file" ref="file" name="img[]" @change="setImage" multiple style='display: none;' />
           <input type="file" ref="hiddfile" name="image[]" multiple="multiple" style='display: none;'>
         </label>
         
       </div>
+    </div>-->
+
+    <div v-else-if="data.ListLength == 1">
+      <div class="form-group testform row">
+        <label class="testdesuyo col-6">
+          ラベル
+          <input type="file" ref="file" name="img[]" @change="setImage" multiple style='display: none;' />
+          <input type="file" ref="hiddfile" name="image[]" multiple="multiple" style='display: none;'>
+        </label>
+        <div class="imgimg col-6 px-2 py-4 justify-content-end" :style="{ backgroundImage: 'url(' +data.image+ ')', }"></div>
+        <!--<div class="imgimg col-6 px-2 py-4 justify-content-end" v-bind:style="[ backGround ]"></div>-->
+      </div>
     </div>
+
+    <div v-else-if="data.ListLength <= 4">
+      <div class="form-group testform">
+        <!--<div class="column">
+          <div v-for="bitai in data.ImList" :key="bitai.ind" class="col-3">
+            <div class="bitaimg" :style="{ backgroundImage: 'url('+data.image+')', }"></div>
+          </div>
+        </div>-->
+        <label class="testdesuyo column" style="background-position: bottom right,
+      left,
+      right;">
+          ラベル
+          <input type="file" ref="file" name="img[]" @change="setImage" multiple style='display: none;' />
+          <input type="file" ref="hiddfile" name="image[]" multiple="multiple" style='display: none;'>
+        </label>
+      </div>
+    </div>
+
   </div>
 </template>
 <script>
@@ -113,5 +143,13 @@ export default {
 .pppp{
   font-size: 20px;
   
+}
+.testdesu{
+  height: 200px;
+  width:100%;
+}
+.testRrr{
+  height: 200px;
+  width:100%;
 }
 </style>

@@ -40,7 +40,7 @@
             </select>
           </div>
 
-          <button class="btn bg-primary" style="width: 269px">購入</button>
+          <button class="btn bg-primary" style="width: 334px">購入</button>
           
         </form>
       @endif

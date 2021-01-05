@@ -1,4 +1,4 @@
-//import './bootstrap'
+import './axios'
 
 import Vue from 'vue'
 
@@ -11,6 +11,7 @@ import review_modal from './components/review_modal'
 import ImageForm from './components/ImageForm'
 import ItemBody from './components/ItemBody'
 import ItemDelete from './components/ItemDelete'
+import TestImage from './components/TestImage'
 
 Vue.component('star-rating', StarRating);
 Vue.use(VModal);
@@ -27,6 +28,7 @@ const app = new Vue({
     ImageForm,
     ItemBody,
     ItemDelete,
+    TestImage
   }
 })
 

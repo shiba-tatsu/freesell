@@ -6,9 +6,15 @@
 <div class="chatPage">
   <header class="header">
   {{--<a href="{{route('')}}" class="linkToMatching"></a>--}}
-    <div class="chatPartner">
-      <div class="chatPartner_img"><img src=""></div>
-      <div class="chatPartner_name">{{ $chat_room_seller -> name }}</div>
+    <div class="chatPartner ">
+      @if($chat_room_seller->topImage === null)
+        <div class="fas fa-user-circle fa-3x text-primary"></div>
+        <h6 class="chatPartner_name">{{ $chat_room_seller->name }}</h6>
+      @else
+        <div class="chatPartner_img"><img src=""></div>
+        <div class="chatPartner_name">{{ $chat_room_seller->name }}</div>
+      @endif
+      
     </div>
   </header>
   <div class="container">
