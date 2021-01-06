@@ -75,3 +75,123 @@ laravel-echo, pusher-js(pusherを使用しての、リアルタイムチャッ�
 14. 商品詳細画面で商品の数量を選択し、購入ボタンをクリックすると、商品購入画面に遷移
 15. 必要な情報を記入し、購入するボタンをクリックすることで、商品を購入できる
 16. ヘッダーのユーザー名をクリックし、ログアウトボタンをクリックすることでログアウトが可能
+
+## SQL
+
+### itemsテーブル
+|Column|Type|
+|------|----|
+|name|string|
+|status|integer|
+|body|text|
+|price|integer|
+|fee|integer|
+|region|string|
+|delivery_day|integer|
+|quantity|integer|
+|seller_id|bigInteger|
+
+### Association
+- has_many :images
+- has_many :payments
+- has_many :reviews
+- belongs_to :users
+- belongs_to :categories
+- belongs_to_many :likes
+
+### imagesテーブル
+|Column|Type|
+|------|----|
+|image|string|
+|item_id|bigInteger|
+
+### Association
+- belongs_to :items
+
+### reviewsテーブル
+|Column|Type|
+|------|----|
+|star|float|
+|title|string|
+|body|text|
+|user_id|bigInteger|
+|item_id|bigInteger|
+
+### Association
+- belongs_to :items
+- belongs_to :users
+
+### likesテーブル
+|Column|Type|
+|------|----|
+|user_id|bigInteger|
+|item_id|bigInteger|
+
+### Association
+- belongs_to_many :items
+- belongs_to_many :users
+
+### paymentsテーブル
+|Column|Type|
+|------|----|
+|item_id|bigInteger|
+|user_id|bigInteger|
+|name|string|
+|postal|string|
+|rigion|integer|
+|city|string|
+|address|string|
+|phoneNumber|string|
+|quantity|integer|
+
+### Association
+- belongs_to :items
+- belongs_to :users
+
+### categoriesテーブル
+|Column|Type|
+|------|----|
+|name|string|
+|_lft|integer|
+|_rgt|integer|
+|parent_id|integer|
+
+### Association
+- has_many :items
+
+### chat_rooms
+|Column|Type|
+|------|----|
+|user_id|bigInteger|
+|seller_id|bigInteger|
+
+### Association
+- belongs_to :users
+
+### chat_messages
+|Column|Type|
+|------|----|
+|chat_room_id|bigInteger|
+|user_id|bigInteger|
+|massage|string|
+
+### Association
+- belongs_to :chat_rooms
+- belongs_to :users
+
+### usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|
+|password|string|
+|name|string|
+|status|integer|nullable|
+|stripe_id|string|unique, nullable|
+
+### Association
+- has_many :items
+- has_many :reviews
+- has_many :chat_rooms
+- has_many :chat_messages
+- has_many :payments
+- belongs_to_many :likes
