@@ -8,8 +8,8 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn btn-block btn-danger">
-                        <i class="fab fa-google mr-1"></i>Googleでログイン
+                    <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn mb-5 btn-danger" style="width:50%; margin-left:230px;">
+                        <i class="fab fa-google mr-1" ></i>Googleでログイン
                       </a>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
