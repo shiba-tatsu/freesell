@@ -1,4 +1,4 @@
-<p align="center"><img src="https://laraheroherotest.s3-ap-northeast-1.amazonaws.com/ZQcblx8Tfr3V7KoX75pVSWgVJvtr93WgC5QlDwAZ.png" width="400"></p>
+<p align="center"><img src="https://i.gyazo.com/5d8e517d5b5749f743af726b0a38181f.png" width="400"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
@@ -8,15 +8,15 @@
 </p>
 
 ## freesellについて
-
+v
 このアプリケーションは、フリーマーケット用の通販サイトです。  
 PHPではよく通販のサイトの開発がされているようなので、今まで学習してきたことの、アウトプットも兼ねて作成することとしました。  
 学習サイトやブログのコピーアンドペーストをするのではなく、できるだけ自分で必要な機能を考えたりコードを書くことを意識しました。  
-  
+
 ## freesellの機能一覧
 
 1. 新規登録、ログイン機能  
-2. 商品投稿・編集・削除
+2. 商品投稿・編集・削除k
 3. 商品お気に入り機能
 4. クレジットカード機能
 5. 商品購入機能

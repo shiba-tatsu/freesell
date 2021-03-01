@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn btn-block btn-danger">
+                    <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn btn-danger mb-5" style="width:50%; margin-left:230px;">
                         <i class="fab fa-google mr-1"></i>Googleで登録
                       </a>
                     <form method="POST" action="{{ route('register') }}">

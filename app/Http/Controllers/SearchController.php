@@ -7,6 +7,7 @@ use App\Item;
 
 class SearchController extends Controller
 {
+    // ヘッダーでの検索
     public function search(Request $request) {
 
         if($request->has('keyword')) {
