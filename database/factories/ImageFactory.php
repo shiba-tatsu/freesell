@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(Image::class, function (Faker $faker) {
     return [
-        'image' => 'https://laraheroherotest.s3.ap-northeast-1.amazonaws.com/FlUmkgQY5zEEQCpvieO4RxcwNKVqRDnMiHjxAhpT.jpeg',
+        'image' => 'https://i.gyazo.com/c3fb7697812b9e18a9244724432461c5.png',
     ];
 });
